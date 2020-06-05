@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <app-entrance></app-entrance>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -9,13 +9,13 @@
 <script>
 
 // import Home from './views/Home'
-import Entrance from './views/Entrance'
+// import Entrance from './views/Entrance'
 export default {
   name: 'App',
 
   components: {
     
-    appEntrance : Entrance
+    
 
   },
 

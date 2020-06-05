@@ -9,9 +9,9 @@
                 <v-row>
                   <v-col cols="12" md="8">
                     <v-card-text class="mt-12">
-                      <h1 class="text-center display-2 teal--text text--accent-3">sign in to diprella</h1>
+                      <h1 class="text-center display-2 teal--text text--accent-3">sign in to TWIX</h1>
                       <div class="text-center" mt-4>
-                        <v-btn class="mx-2" fab color="black" outlined>
+                        <!-- <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-facebook-f</v-icon>
                         </v-btn>
                         <v-btn class="mx-2" fab color="black" outlined>
@@ -19,7 +19,7 @@
                         </v-btn>
                         <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-linkedin-in</v-icon>
-                        </v-btn>
+                        </v-btn> -->
                       </div>
                       <h4 class="text-center mlt-4">Ensure your email for resitration</h4>
                       <v-form>
@@ -43,7 +43,7 @@
 
                     </v-card-text>
                     <div class="text-center mt-3">
-                      <v-btn rounded color="teal accent-3" dark>SIGN IN</v-btn>
+                      <v-btn rounded color="teal accent-3" dark @click="move">SIGN IN</v-btn>
                     </div> 
                   </v-col>
                   <v-col cols="12" md="4" class="teal accent-3">
@@ -82,7 +82,7 @@
                     <v-card-text class="mt-12">
                       <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
                       <div class="text-center mt-4">
-                        <v-btn class="mx-2" fab color="black" outlined>
+                        <!-- <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-facebook-f</v-icon>
                         </v-btn>
                         <v-btn class="mx-2" fab color="black" outlined>
@@ -90,7 +90,7 @@
                         </v-btn>
                         <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-linkedin-in</v-icon>
-                        </v-btn>
+                        </v-btn> -->
 
                       </div>
                       <h4 class="text-center mt-4">Ensure your Email for registration</h4>
@@ -118,7 +118,7 @@
                       </v-form>
                     </v-card-text>
                     <div class="text-center mt-n5">
-                      <v-btn rounded color="teal accent-3" dark>SIGN UP</v-btn>
+                      <v-btn rounded color="teal accent-3" dark @click="move">SIGN UP</v-btn>
 
                     </div>
 
@@ -140,6 +140,12 @@
     }),
     props:{
       source: String
-    }  
+    },
+    methods:{
+        move:function(){
+            
+            this.$router.push({name:'Home'});
+        }
+    }
   };
 </script>
