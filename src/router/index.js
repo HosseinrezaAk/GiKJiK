@@ -24,8 +24,12 @@ Vue.use(VueRouter)
     name: 'Entrance',
     component:Entrance
   },
-  {path:'/redirect-me',
-   redirect:{name :''}}
+
+  
+  {
+    path:'*',
+   redirect:{name :'Home'}
+  }
 
   
 ]
