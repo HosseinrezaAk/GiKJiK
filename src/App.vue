@@ -2,19 +2,23 @@
   <div id="app">
     <div id="nav">
       <app-header></app-header>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
     </div>
+    
+    <app-entrance></app-entrance>
     <router-view/>
+    
   </div>
 </template>
 
 <script>
   import Header from './components/Header'
+  import Entrance from './views/Entrance'
   export default {
     
     components:{
-      appHeader : Header
+      appHeader : Header,
+      appEntrance : Entrance
     }
   }
 </script>
@@ -24,7 +28,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  
   color: #2c3e50;
 }
 
