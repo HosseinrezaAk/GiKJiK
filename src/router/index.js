@@ -25,10 +25,10 @@ Vue.use(VueRouter)
     component:Entrance
   },
 
-  
+
   {
     path:'*',
-   redirect:{name :'Home'}
+   redirect:{name :''}
   }
 
   
