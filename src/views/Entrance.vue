@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container class="fill-height" fluid>
+    <v-container class="fill-height grey lighten-4" fluid>
       <v-row align="center" justify="center">
         <v-col cols="12" sm="8">
           <v-card class="elevation-12">
@@ -28,7 +28,7 @@
                         name="Email"
                         prepend-icon="email"
                         type="text"
-                        color="teal accent-3">
+                        color="teal accent-4">
                         </v-text-field>
                         <v-text-field
                         id="password"
@@ -36,17 +36,17 @@
                         name="Password"
                         prepend-icon="lock"
                         type="password"
-                        color="teal accent-3" />
+                        color="teal accent-4" />
 
                       </v-form>
                       <h3 class="text-center mt-3">Forget your password?</h3>
 
                     </v-card-text>
                     <div class="text-center mt-3">
-                      <v-btn rounded color="teal accent-3" dark @click="move">SIGN IN</v-btn>
+                      <v-btn rounded color="teal accent-4" dark @click="move">SIGN IN</v-btn>
                     </div> 
                   </v-col>
-                  <v-col cols="12" md="4" class="teal accent-3">
+                  <v-col cols="12" md="4" class="teal accent-4">
                     <v-card-text class="white--text mt-12">
                       <h1 class="text-center display-3">
                         Hello, friends !
@@ -68,7 +68,7 @@
               </v-window-item>
               <v-window-item :value="2">
                 <v-row class="fill-height">
-                  <v-col cols="12" md="4" class="teal accent-3">
+                  <v-col cols="12" md="4" class="teal accent-4">
                     <v-card-text class="white--text mt12">
                       <h1 class="text-center display-1">Welcome Back !</h1>
                       <h5 class="text-center">To Keep connected with us please login with your personal information</h5>
@@ -100,7 +100,7 @@
                         name="Name"
                         prepend-icon="person"
                         type="text"
-                        color="teal accent-3">
+                        color="teal accent-4">
                         </v-text-field>
 
                         <v-text-field
@@ -108,17 +108,17 @@
                         name="Email"
                         prepend-icon="email"
                         type="text"
-                        color="teal accent-3" />
+                        color="teal accent-4" />
                         <v-text-field
                         label="Password"
                         name="Password"
                         prepend-icon="locl"
                         type="password"
-                        color="teal accent-3" />
+                        color="teal accent-4" />
                       </v-form>
                     </v-card-text>
                     <div class="text-center mt-n5">
-                      <v-btn rounded color="teal accent-3" dark @click="move">SIGN UP</v-btn>
+                      <v-btn rounded color="teal accent-4" dark @click="move">SIGN UP</v-btn>
 
                     </div>
 

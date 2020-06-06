@@ -20,7 +20,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path:'/entrance',
+    path:'/',
     name: 'Entrance',
     component:Entrance
   },
@@ -28,7 +28,7 @@ Vue.use(VueRouter)
 
   {
     path:'*',
-   redirect:{name :''}
+   redirect:{name :'Entrance'}
   }
 
   
