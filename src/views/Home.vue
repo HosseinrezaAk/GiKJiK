@@ -1,8 +1,20 @@
 <template>
- <h1>THIS IS HOME</h1>
+	<div>
+
+		<app-header></app-header>
+		<h2>THIS IS HOME</h2>
+
+	</div>
+  
 </template>
 
+
 <script>
-  export default {
-  }
+	import Header from '../components/Header'
+	export default {
+	
+		components:{
+		appHeader :Header
+		}
+	}
 </script>
