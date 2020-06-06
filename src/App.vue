@@ -14,16 +14,17 @@
 // import Home from './views/Home'
 // import Entrance from './views/Entrance'
 export default {
-  name: 'App',
+	
+	name: 'App',
 
-  components: {
-    
-    
+	components: {
 
-  },
 
-  data: () => ({
-    //
-  }),
+
+	},
+
+	data: () => ({
+	//
+	}),
 };
 </script>
