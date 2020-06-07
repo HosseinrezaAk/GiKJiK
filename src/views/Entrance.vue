@@ -9,8 +9,9 @@
                 <v-row>
                   <v-col cols="12" md="8">
                     <v-card-text class="mt-12">
-                      <h1 class="text-center display-2 teal--text text--accent-3">sign in to TWIX</h1>
+                      <h1 class="text-center display-2 teal--text text--accent-4"> <span class="font-weight-light ">GIK</span><span>JIK</span></h1>
                       <div class="text-center" mt-4>
+						  
                         <!-- <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-facebook-f</v-icon>
                         </v-btn>
@@ -80,7 +81,7 @@
                   </v-col>
                   <v-col cols="12" md="8">
                     <v-card-text class="mt-12">
-                      <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
+                      <h1 class="text-center display-2 teal--text text--accent-4">Create Account</h1>
                       <div class="text-center mt-4">
                         <!-- <v-btn class="mx-2" fab color="black" outlined>
                           <v-icon class="">fab fa-facebook-f</v-icon>
