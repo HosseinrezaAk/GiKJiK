@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <v-toolbar app flat class="teal lighten-5" >
+        <v-toolbar flat class="teal lighten-5" >
             <v-app-bar-nav-icon color="teal accent-4" @click="drawer = !drawer"></v-app-bar-nav-icon>
             
             <v-toolbar-title class="text-uppercase " >
@@ -9,6 +9,18 @@
             </v-toolbar-title>
 
             <v-spacer></v-spacer>
+
+            <v-menu offset-y>
+                <v-btn text slot="activator" color="teal accent-4">
+                    <v-icon left>expand_more</v-icon>
+                    <span>Menu</span>
+                </v-btn>
+                <v-list>
+                    <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+                        <v-list-item-title>{{ link.text }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
 
             <v-btn rounded text color="teal accent-4">
                 <span>Sign Out</span>
@@ -20,10 +32,19 @@
             class="teal accent-5"
             color="teal"
             v-model="drawer"
-            
             bottom
             temporary
                 >
+                <v-layout column align-center>
+                    <v-flex class="mt-8 mb-5">
+                        <v-avatar size="100">
+                            <img src="/avatar-1.png" alt="">
+                        </v-avatar>
+                        <p class="white--text subtitle-1 mt-3">
+                            Hosseinreza
+                        </p>
+                    </v-flex>
+                </v-layout>
             <v-list dense nav>
                 <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-item-action>
