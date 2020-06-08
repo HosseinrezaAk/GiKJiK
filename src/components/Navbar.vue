@@ -25,7 +25,7 @@
                 </v-list>
             </v-menu>
 
-            <v-btn rounded text color="teal accent-4">
+            <v-btn @click="move" rounded text color="teal accent-4">
                 <span>Sign Out</span>
                 <v-icon right>exit_to_app</v-icon>
 
@@ -71,12 +71,17 @@
                 drawer: false,
                 links: [
                     { icon: 'dashboard', text: 'Dashboard', route: '/'},
-                    { icon: 'folder', text: 'My Projects', route: '/user/classmanagment'},
+                    { icon: 'class', text: 'Class Manager', route: '/user/classmanagment'},
                     { icon: 'person', text: 'Team', route: '/about'}
                     
                 ]
             }
         },
+        methods:{
+            move:function(){
+                this.$router.push({name :'Entrance'})
+            }
+        }
         
     }
 </script>
