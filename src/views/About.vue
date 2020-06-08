@@ -3,7 +3,7 @@
 	<div>
     <app-navbar></app-navbar>
     <div class="mx-5">
-      <h2 class="title teal--text" >THIS IS ABOUT</h2>
+      <h2 class="title teal--text mt-6" >THIS IS ABOUT</h2>
 		<v-container class="mx-7 my-5">
 			
 			<v-card flat class="pa-5" >

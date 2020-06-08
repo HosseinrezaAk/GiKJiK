@@ -2,7 +2,7 @@
 	<div>
 		<app-navbar></app-navbar>
 		
-		<div class="mx-5">
+		<div class="mx-5 mt-6">
 			<h2>THIS IS HOME</h2>
 			<div class="my-5 mx-7">
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
