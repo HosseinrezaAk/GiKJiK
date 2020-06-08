@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Entrance from '../views/Entrance.vue'
-
+import ClassMng from '../views/ClassMng.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -23,6 +23,11 @@ Vue.use(VueRouter)
     path:'/',
     name: 'Entrance',
     component:Entrance
+  },
+  {
+    path:'/user/classmanagment',
+    name:'ClassManagment',
+    component: ClassMng
   },
 
 

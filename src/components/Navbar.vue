@@ -71,7 +71,7 @@
                 drawer: false,
                 links: [
                     { icon: 'dashboard', text: 'Dashboard', route: '/'},
-                    { icon: 'folder', text: 'My Projects', route: '/home'},
+                    { icon: 'folder', text: 'My Projects', route: '/user/classmanagment'},
                     { icon: 'person', text: 'Team', route: '/about'}
                     
                 ]
