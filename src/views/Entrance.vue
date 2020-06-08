@@ -145,7 +145,7 @@
     methods:{
         move:function(){
             
-            this.$router.push({name:'Home'});
+            this.$router.push({name:'User'});
         }
     }
   };

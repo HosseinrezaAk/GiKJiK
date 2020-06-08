@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import User from '../views/User.vue'
 import Entrance from '../views/Entrance.vue'
 import ClassMng from '../views/ClassMng.vue'
 Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/user',
+    name: 'User',
+    component: User
   },
   {
     path: '/about',
