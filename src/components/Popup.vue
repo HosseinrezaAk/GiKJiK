@@ -13,7 +13,9 @@
 				</v-card-title>
 				<v-card-text>
 					<v-form class="px-3">
-						
+						<v-text-field label="Title" v-model="title" prepend-icon="title"></v-text-field>
+						<v-textarea label="information" v-model="content" prepend-icon="edit"></v-textarea>
+						<v-btn text class="success  mt-3">Add project</v-btn>
 					</v-form>
 				</v-card-text>
 
@@ -25,7 +27,12 @@
 </template>
 
 <script>
-export default {
-    
-}
+	export default {
+		data() {
+			return {
+				title:'',
+				content:''
+			}
+		},
+	}
 </script>
