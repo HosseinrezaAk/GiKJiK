@@ -1,9 +1,6 @@
 <template>
     <div class="navbar">
-        <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
-            <span>Awesome! you added new class.</span>
-            <v-btn text color="white" @click="snackbar = false">Close</v-btn>
-        </v-snackbar>
+        
         <v-toolbar flat class="teal lighten-5" >
             
             
@@ -45,17 +42,20 @@
                     </v-flex>
                 </v-layout>
 
-            <v-list dense nav>
-                <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
-                    <v-list-item-action>
-                        <v-icon class="white--text">{{ link.icon }}</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title class="white--text">
-                            {{ link.text }}
-                        </v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
+            <v-list class="ml-2" dense nav>
+                <v-dialog   max-width="600px" class="mb-5" v-model="dialog" v-for="pop in popups" :key="pop.text">
+                    <template v-slot:activator="{on,attrs}">
+                        
+                        <v-btn small dark text v-on="on" v-bind="attrs" class="teal accent-5 mb-5 " >
+					    <v-icon left>{{pop.icon}}</v-icon>
+                        <span class="nav text-capitalize ml-6 line-height-1.2">{{pop.text}}</span>
+
+				        </v-btn>
+                    </template>
+                    <v-divider></v-divider>
+                </v-dialog>
+
+                
             </v-list>
         </v-navigation-drawer>
     </div>
@@ -70,12 +70,13 @@
         data() {
             return {
                 drawer: true,
-                links: [
-                    { icon: 'supervised_user_circle', text: 'Members', route: '/userHome'},
-                    { icon: 'class', text: 'Class Manager', route: '/classmanagment'},
-                    { icon: 'person', text: 'Team', route: '/about'}
+                popups: [
+                    { icon: 'supervised_user_circle', text: 'Members'},
+                    { icon: 'class', text: 'Make a Quiz' },
+                    { icon: 'person', text: 'Team'}
                     
                 ],
+                dialog:false
                 
             }
         },
