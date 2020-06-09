@@ -72,16 +72,11 @@
 <script>
     import Navbar from '../components/Navbar'
     import db from '../fb'
-    
+
 	export default {
         data() {
             return {
-                classes: [
-                    { title: 'Algorithm', teacher: 'Sadr', class_id: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Data Structure', teacher: 'Keshtkaran', class_id: 'ID2', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Artificial Intelligence', teacher: 'Azimifar', class_id: 'ID3', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Web', teacher: 'Kazemi', class_id: 'ID4', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                ]
+                classes: []
             }
         },
 	
@@ -92,7 +87,17 @@
             sortBy: function(prop){
                 this.classes.sort((a,b) => a[prop] < b[prop] ? -1 :1)
             }
-        }
+        },
+        created() {
+            db.collection('classes').onSnapshot(res =>{
+                const changes = res.docChanges();
+                changes.forEach(change => {
+                    if(change.type === 'added'){
+
+                    }
+                })
+            }) 
+        },
         
 	}
 </script>
