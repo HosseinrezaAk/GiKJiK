@@ -93,7 +93,10 @@
                 const changes = res.docChanges();
                 changes.forEach(change => {
                     if(change.type === 'added'){
-
+                        this.classes.push({
+                            ...change.doc.data(),
+                            id: change.doc.id
+                        })
                     }
                 })
             }) 

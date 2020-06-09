@@ -50,7 +50,7 @@
 						content: this.content,
 						class_id:'id6',
 						teacher: 'hamze',
-						status: 'online'
+						status: 'Online'
 					}
 					db.collection('classes').add(aclass).then(()=>{
 						this.loading = false;
