@@ -76,7 +76,9 @@
 	export default {
         data() {
             return {
-                classes: []
+                classes: [
+                    { title: 'Algorithm', teacher: 'Sadr', class_id: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    ]
             }
         },
 	
