@@ -31,7 +31,7 @@
                 </v-layout>
 
 
-                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.title" >
+                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.title" @click="moveToClass" >
                     <v-layout row wrap :class="`pa-4 eachClass ${eachClass.status}`">
                         <v-flex xs12 md6>
                             <div class="caption grey--text">Class title</div>
@@ -86,6 +86,10 @@
         methods:{
             sortBy: function(prop){
                 this.classes.sort((a,b) => a[prop] < b[prop] ? -1 :1)
+            },
+            moveToClass: function(){
+                this.$router.push({name : 'MainClass'})
+                
             }
         },
         created() {

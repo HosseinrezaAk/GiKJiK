@@ -32,7 +32,7 @@ Vue.use(VueRouter)
 	},
 	{
 		path:'/user/class',
-		name:'Class',
+		name:'MainClass',
 		component:mainClass
 	},
 
