@@ -40,12 +40,12 @@
 
                         <v-flex xs6 sm4 md2>
                             <div class="caption grey--text">Teacher</div>
-                            <div> {{eachClass.person}}</div>
+                            <div> {{eachClass.teacher}}</div>
                         </v-flex>
 
                         <v-flex xs6 sm4 md2>
                             <div class="caption grey--text">Class ID</div>
-                            <div> {{ eachClass.due}}</div>
+                            <div> {{ eachClass.class_id}}</div>
                         </v-flex>
                         <v-flex xs2 sm4 md2>
                             
@@ -75,10 +75,10 @@
         data() {
             return {
                 classes: [
-                    { title: 'Algorithm', person: 'Sadr', due: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Data Structure', person: 'Keshtkaran', due: 'ID2', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Artificial Intelligence', person: 'Azimifar', due: 'ID3', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Web', person: 'Kazemi', due: 'ID4', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Algorithm', teacher: 'Sadr', class_id: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Data Structure', teacher: 'Keshtkaran', class_id: 'ID2', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Artificial Intelligence', teacher: 'Azimifar', class_id: 'ID3', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Web', teacher: 'Kazemi', class_id: 'ID4', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
                 ]
             }
         },

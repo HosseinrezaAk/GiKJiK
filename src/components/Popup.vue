@@ -12,10 +12,10 @@
 					<h2>Add a New Project</h2>
 				</v-card-title>
 				<v-card-text>
-					<v-form class="px-3">
-						<v-text-field label="Title" v-model="title" prepend-icon="title"></v-text-field>
+					<v-form class="px-3" ref="form">
+						<v-text-field label="Title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
 						<v-textarea label="information" v-model="content" prepend-icon="edit"></v-textarea>
-						<v-btn text class="success  mt-3">Add project</v-btn>
+						<v-btn text class="success  mt-3" @click="submit">Add project</v-btn>
 					</v-form>
 				</v-card-text>
 
@@ -31,7 +31,18 @@
 		data() {
 			return {
 				title:'',
-				content:''
+				content:'',
+				inputRules:[
+					v => v.length >= 3 || 'Minimum length is 3 characters'
+				]
+			}
+		},
+		methods: {
+			submit: function(){
+				if(this.$refs.form.validate()){
+					console.log(this.title,this.content)
+				}
+				
 			}
 		},
 	}
