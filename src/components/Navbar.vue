@@ -1,5 +1,9 @@
 <template>
     <div class="navbar">
+        <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
+            <span>Awesome! you added new class.</span>
+            <v-btn text color="white" @click="snackbar = false">Close</v-btn>
+        </v-snackbar>
         <v-toolbar flat class="teal lighten-5" >
             <v-app-bar-nav-icon color="teal accent-4" @click="drawer = !drawer"></v-app-bar-nav-icon>
             
@@ -49,7 +53,7 @@
                     </v-flex>
 
                     <v-flex mb-5>
-                        <app-popup></app-popup>
+                        <app-popup @projectAdded="snackbar=true"></app-popup>
                     </v-flex>
                 </v-layout>
 
@@ -83,7 +87,8 @@
                     { icon: 'class', text: 'Class Manager', route: '/user/classmanagment'},
                     { icon: 'person', text: 'Team', route: '/about'}
                     
-                ]
+                ],
+                snackbar:false
             }
         },
         methods:{
