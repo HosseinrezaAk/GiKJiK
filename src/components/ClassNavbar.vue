@@ -3,7 +3,7 @@
         
         <v-toolbar flat class="teal lighten-5" >
             
-            
+             <v-app-bar-nav-icon color="teal accent-4" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase " >
                 <span class="font-weight-light " style="color:#00BFA5;" >GiK</span>
                 <span  style="color:#00BFA5;">JiK</span>
@@ -52,7 +52,19 @@
 
 				        </v-btn>
                     </template>
-                    <v-divider></v-divider>
+                    <v-card>
+                        <v-card-title>
+                            <h2>Add a New Class</h2>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-form class="px-3" ref="form">
+                                <v-text-field label="Title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
+                                <v-textarea label="information" v-model="content" prepend-icon="edit"></v-textarea>
+                                <v-btn text class="success  mt-3" @click="submit" :loading="loading">Add Class</v-btn>
+                            </v-form>
+                        </v-card-text>
+
+                    </v-card>
                 </v-dialog>
 
                 
@@ -72,8 +84,8 @@
                 drawer: true,
                 popups: [
                     { icon: 'supervised_user_circle', text: 'Members'},
-                    { icon: 'class', text: 'Make a Quiz' },
-                    { icon: 'person', text: 'Team'}
+                    { icon: 'check_circle_outline', text: 'Make a Quiz' },
+                    { icon: 'announcement', text: 'News'}
                     
                 ],
                 dialog:false
