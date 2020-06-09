@@ -14,6 +14,11 @@
             
 
             <v-btn @click="move" rounded text color="teal accent-4">
+                <span>Members</span>
+                <v-icon right>supervised_user_circle</v-icon>
+
+            </v-btn>
+            <v-btn @click="move" rounded text color="teal accent-4">
                 <span>Leave Class</span>
                 <v-icon right>exit_to_app</v-icon>
 
@@ -69,7 +74,7 @@
                 drawer: true,
                 popups: [
                    
-                    { icon: 'check_circle_outline', text: 'Make a Quiz',route:'/about' },
+                    { icon: 'check_circle_outline', text: 'Make a Quiz',route:'/makequiz' },
                     { icon: 'aspect_ratio', text: 'White board',route:'/user'},
                     { icon: 'announcement', text: 'News',route:''}
                     

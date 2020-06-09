@@ -4,6 +4,8 @@ import User from '../views/User.vue'
 import Entrance from '../views/Entrance.vue'
 import ClassMng from '../views/ClassMng.vue'
 import mainClass from '../views/mainClass.vue'
+
+import MakeQuiz from '../components/MakeQuiz.vue'
 Vue.use(VueRouter)
 
 	const routes = [
@@ -33,8 +35,16 @@ Vue.use(VueRouter)
 	{
 		path:'/user/class',
 		name:'MainClass',
-		component:mainClass
+		component:mainClass,
+		children:[
+			{
+				path:'/makequiz',
+				name:'MakeQuiz',
+				component:MakeQuiz
+			},
+		]
 	},
+
 
 	{
 		path:'*',
