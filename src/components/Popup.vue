@@ -3,13 +3,13 @@
 		<v-dialog max-width="600px" v-model="dialog">
 			<template v-slot:activator="{on,attrs}">
 				<v-btn text v-on="on" v-bind="attrs" class="success">
-					Add new project
+					Add new Class
 
 				</v-btn>
 			</template>
 			<v-card>
 				<v-card-title>
-					<h2>Add a New Project</h2>
+					<h2>Add a New Class</h2>
 				</v-card-title>
 				<v-card-text>
 					<v-form class="px-3" ref="form">
