@@ -47,7 +47,12 @@
                             Hosseinreza
                         </p>
                     </v-flex>
+
+                    <v-flex mb-5>
+                        <app-popup></app-popup>
+                    </v-flex>
                 </v-layout>
+
             <v-list dense nav>
                 <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-item-action>
@@ -65,7 +70,11 @@
 </template>
 
 <script>
+    import Popup from './Popup'
     export default {
+        components:{
+            appPopup :Popup
+        },
         data() {
             return {
                 drawer: false,

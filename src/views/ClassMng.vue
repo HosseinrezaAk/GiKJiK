@@ -31,7 +31,7 @@
                 </v-layout>
 
 
-                <v-card flat class="pl-3 pb-2" v-for="eachClass in classes" :key="eachClass.title" >
+                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.title" >
                     <v-layout row wrap :class="`pa-4 eachClass ${eachClass.status}`">
                         <v-flex xs12 md6>
                             <div class="caption grey--text">Class title</div>
@@ -44,7 +44,7 @@
                         </v-flex>
 
                         <v-flex xs6 sm4 md2>
-                            <div class="caption grey--text">Due by</div>
+                            <div class="caption grey--text">Class ID</div>
                             <div> {{ eachClass.due}}</div>
                         </v-flex>
                         <v-flex xs2 sm4 md2>
@@ -55,7 +55,7 @@
                         </v-flex>
                         
                     </v-layout>
-                    <v-divider></v-divider>
+                    
                 </v-card>
 
                 
@@ -75,10 +75,10 @@
         data() {
             return {
                 classes: [
-                    { title: 'Algorithm', person: 'The Net Ninja', due: '1st Jan 2019', status: 'ongoing', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Data Structure', person: 'Chun Li', due: '10th Jan 2019', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Artificial Intelligence', person: 'Ryu', due: '20th Dec 2018', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    { title: 'Web', person: 'Gouken', due: '20th Oct 2018', status: 'overdue', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Algorithm', person: 'Sadr', due: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Data Structure', person: 'Keshtkaran', due: 'ID2', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Artificial Intelligence', person: 'Azimifar', due: 'ID3', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
+                    { title: 'Web', person: 'Kazemi', due: 'ID4', status: 'Offline', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
                 ]
             }
         },
@@ -96,19 +96,19 @@
 </script>
 
 <style >
-    .eachClass.complete{
+    .eachClass.Online{
         border-left:4px solid #3cd1c2;
     }
-    .eachClass.ongoing{
+    .eachClass.Offline{
         border-left:4px solid orange;
     }
     .eachClass.overdue{
         border-left:4px solid tomato;
     }
-    .v-chip.complete{
+    .v-chip.Online{
         background: #3cd1c2 !important;
     }
-    .v-chip.ongoing{
+    .v-chip.Offline{
         background: orange!important;
     }
     .v-chip.overdue{
