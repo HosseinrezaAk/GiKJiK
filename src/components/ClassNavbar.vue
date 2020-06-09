@@ -17,7 +17,7 @@
             
 
             <v-btn @click="move" rounded text color="teal accent-4">
-                <span>Sign Out</span>
+                <span>Leave Class</span>
                 <v-icon right>exit_to_app</v-icon>
 
             </v-btn>
@@ -40,7 +40,8 @@
                     </v-flex>
 
                     <v-flex mb-5>
-                        <app-popup @projectAdded="snackbar=true"></app-popup>
+                        <!-- @projectAdded="snackbar=true" -->
+                        <app-popup ></app-popup>
                     </v-flex>
                 </v-layout>
 
@@ -70,7 +71,7 @@
             return {
                 drawer: true,
                 links: [
-                    { icon: 'home', text: 'Home', route: '/userHome'},
+                    { icon: 'supervised_user_circle', text: 'Members', route: '/userHome'},
                     { icon: 'class', text: 'Class Manager', route: '/classmanagment'},
                     { icon: 'person', text: 'Team', route: '/about'}
                     
@@ -80,7 +81,7 @@
         },
         methods:{
             move:function(){
-                this.$router.push({name :'Entrance'})
+                this.$router.push({name :'User'})
             }
         }
         

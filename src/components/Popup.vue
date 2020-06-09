@@ -2,7 +2,7 @@
 	<div>
 		<v-dialog max-width="600px" v-model="dialog">
 			<template v-slot:activator="{on,attrs}">
-				<v-btn text v-on="on" v-bind="attrs" class="success">
+				<v-btn dark text v-on="on" v-bind="attrs" class="teal lighten-1" >
 					Add new Class
 
 				</v-btn>
