@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 	const routes = [
 		{
-		path: '/user',
+		path: '/userHome',
 		name: 'User',
 		component: User
 	},
@@ -26,7 +26,7 @@ Vue.use(VueRouter)
 		component:Entrance
 	},
 	{
-		path:'/user/classmanagment',
+		path:'/classmanagment',
 		name:'ClassManagment',
 		component: ClassMng
 	},

@@ -83,8 +83,8 @@
             return {
                 drawer: false,
                 links: [
-                    { icon: 'home', text: 'Home', route: '/user'},
-                    { icon: 'class', text: 'Class Manager', route: '/user/classmanagment'},
+                    { icon: 'home', text: 'Home', route: '/userHome'},
+                    { icon: 'class', text: 'Class Manager', route: '/classmanagment'},
                     { icon: 'person', text: 'Team', route: '/about'}
                     
                 ],
