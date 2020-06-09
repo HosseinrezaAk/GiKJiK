@@ -53,7 +53,7 @@
                     </v-flex>
 
                     <v-flex mb-5>
-                        <app-popup @projectAdded="snackbar=true"></app-popup>
+                        <app-Create-Class-Popup @projectAdded="snackbar=true"></app-Create-Class-Popup>
                     </v-flex>
                 </v-layout>
 
@@ -74,10 +74,10 @@
 </template>
 
 <script>
-    import Popup from './Popup'
+    import CreateClassPopup from './CreateClassPopup'
     export default {
         components:{
-            appPopup :Popup
+            appCreateClassPopup :CreateClassPopup
         },
         data() {
             return {
