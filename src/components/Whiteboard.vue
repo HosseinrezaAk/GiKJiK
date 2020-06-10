@@ -1,8 +1,9 @@
 <template>
-    <div class="quiz">
-        <h2>This is Quiz</h2>
+    <div class="whiteboard">
+        <h2>This is Whiteboard</h2>
     </div>
 </template>
+
 
 <script>
     export default {

@@ -6,6 +6,7 @@ import ClassMng from '../views/ClassMng.vue'
 import mainClass from '../views/mainClass.vue'
 
 import MakeQuiz from '../components/MakeQuiz.vue'
+import Whiteboard from '../components/Whiteboard.vue'
 Vue.use(VueRouter)
 
 	const routes = [
@@ -33,7 +34,7 @@ Vue.use(VueRouter)
 		component: ClassMng
 	},
 	{
-		path:'/user/class',
+		path:'/class',
 		name:'MainClass',
 		component:mainClass,
 		children:[
@@ -41,6 +42,11 @@ Vue.use(VueRouter)
 				path:'/makequiz',
 				name:'MakeQuiz',
 				component:MakeQuiz
+			},
+			{
+				path:'/whiteboard',
+				name:'Whiteboard',
+				component:Whiteboard
 			},
 		]
 	},

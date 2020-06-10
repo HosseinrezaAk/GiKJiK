@@ -44,13 +44,13 @@
                 </v-layout>
 
             <v-list dense nav>
-                <v-list-item  v-for="pop in popups" :key="pop.text" router :to="pop.route">
+                <v-list-item  v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-item-action>
-                        <v-icon class="white--text">{{ pop.icon }}</v-icon>
+                        <v-icon class="white--text">{{ link.icon }}</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title class="white--text">
-                            {{ pop.text }}
+                            {{ link.text }}
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -70,10 +70,10 @@
         data() {
             return {
                 drawer: true,
-                popups: [
-                   
+                links: [
+                    { icon: 'featured_video', text: 'Class',route:'/class' },
                     { icon: 'check_circle_outline', text: 'Make a Quiz',route:'/makequiz' },
-                    { icon: 'aspect_ratio', text: 'White board',route:'/user'},
+                    { icon: 'aspect_ratio', text: 'White board',route:'/whiteboard'},
                     { icon: 'announcement', text: 'News',route:''}
                     
                 ],
