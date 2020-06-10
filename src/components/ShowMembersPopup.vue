@@ -3,7 +3,7 @@
         <v-dialog
             v-model="dialog"
             max-width="350px"
-            scrollable
+            
         >
             <template v-slot:activator="{on,attrs}">
                 <v-btn dark text  
@@ -13,7 +13,7 @@
                 </v-btn>
                 
             </template>
-            <v-card>
+            <v-card >
                 <v-card-title>
                     <h2>Members</h2>
                 </v-card-title>
@@ -25,11 +25,10 @@
                             <div> {{ student.name }}</div>
                         </v-flex>
 
-                    
                         <v-flex xs4 sm4 md4>
                             
                             <div class="mt-2 ">
-                                <v-chip  label color="red" text-color="white" @click="">Remove</v-chip>
+                                <v-chip  label color="red" text-color="white" @click="removeUser">Remove</v-chip>
                             </div>
                         </v-flex>
                         
@@ -54,7 +53,9 @@ export default {
         }
     },
     methods:{
-
+        removeUser:function(){
+            
+        }
     }
 }
 </script>
