@@ -19,7 +19,7 @@
                 </v-card-title>
                 <v-divider></v-divider>
                 
-                    <v-layout row wrap class="px-4 pt-2 pb-2 ml-1 mb-1 " v-for="student in students" :key="student.name">
+                    <v-layout row wrap class="px-6 pt-2 pb-2 ml-1 mb-1 " v-for="student in students" :key="student.name">
                         <v-flex xs8 sm8 md8>
                             <div class="caption grey--text">{{student.type}} </div>
                             <div> {{ student.name }}</div>
@@ -46,7 +46,8 @@ export default {
         return {
             students: [
                     { name: 'Hosseinreza', type:'Student'},
-                    { name: 'Ali', type:'Teacher'}
+                    { name: 'Ali', type:'Teacher'},
+                    
                     ],
                     dialog: false
             
@@ -54,7 +55,7 @@ export default {
     },
     methods:{
         removeUser:function(){
-            
+
         }
     }
 }
