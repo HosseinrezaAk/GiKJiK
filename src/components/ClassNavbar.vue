@@ -12,12 +12,8 @@
             <v-spacer></v-spacer>
 
             
-
-            <v-btn @click="move" rounded text color="teal accent-4">
-                <span>Members</span>
-                <v-icon right>supervised_user_circle</v-icon>
-
-            </v-btn>
+            <app-show-members-popup></app-show-members-popup>
+            
             <v-btn @click="move" rounded text color="teal accent-4">
                 <span>Leave Class</span>
                 <v-icon right>exit_to_app</v-icon>
@@ -65,9 +61,11 @@
 
 <script>
     import CreateClassPopup from './CreateClassPopup'
+    import ShowMembersPopup from './ShowMembersPopup'
     export default {
         components:{
-           appCreateClassPopup :CreateClassPopup
+           appCreateClassPopup :CreateClassPopup,
+           appShowMembersPopup : ShowMembersPopup
         },
         data() {
             return {
