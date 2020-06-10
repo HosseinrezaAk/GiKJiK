@@ -25,9 +25,7 @@
                             <div> {{ student.name }}</div>
                         </v-flex>
 
-                        
-
-                        
+                    
                         <v-flex xs4 sm4 md4>
                             
                             <div class="mt-2 ">
