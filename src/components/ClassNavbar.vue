@@ -71,10 +71,10 @@
             return {
                 drawer: true,
                 links: [
-                    { icon: 'featured_video', text: 'Class',route:'/class' },
+                    { icon: 'featured_video', text: 'Class',route:'/classScreen' },
                     { icon: 'check_circle_outline', text: 'Make a Quiz',route:'/makequiz' },
                     { icon: 'aspect_ratio', text: 'White board',route:'/whiteboard'},
-                    { icon: 'announcement', text: 'News',route:''}
+                    { icon: 'announcement', text: 'News',route:'/news'}
                     
                 ],
                 dialog:false

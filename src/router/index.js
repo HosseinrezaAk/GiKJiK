@@ -7,6 +7,8 @@ import mainClass from '../views/mainClass.vue'
 
 import MakeQuiz from '../components/MakeQuiz.vue'
 import Whiteboard from '../components/Whiteboard.vue'
+import News from '../components/News.vue'
+import ClassScreen from '../components/ClassScreen.vue'
 Vue.use(VueRouter)
 
 	const routes = [
@@ -39,6 +41,11 @@ Vue.use(VueRouter)
 		component:mainClass,
 		children:[
 			{
+				path:'/classScreen',
+				name:'ClassScreen',
+				component:ClassScreen
+			},
+			{
 				path:'/makequiz',
 				name:'MakeQuiz',
 				component:MakeQuiz
@@ -47,6 +54,11 @@ Vue.use(VueRouter)
 				path:'/whiteboard',
 				name:'Whiteboard',
 				component:Whiteboard
+			},
+			{
+				path:'/news',
+				name:'News',
+				component:News
 			},
 		]
 	},
