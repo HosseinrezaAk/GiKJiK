@@ -5,7 +5,7 @@ import Entrance from '../views/Entrance.vue'
 import ClassMng from '../views/ClassMng.vue'
 import mainClass from '../views/mainClass.vue'
 
-import MakeQuiz from '../components/MakeQuiz.vue'
+import Quiz from '../components/Quiz.vue'
 import Whiteboard from '../components/Whiteboard.vue'
 import News from '../components/News.vue'
 import ClassScreen from '../components/ClassScreen.vue'
@@ -46,9 +46,9 @@ Vue.use(VueRouter)
 				component:ClassScreen
 			},
 			{
-				path:'/makequiz',
-				name:'MakeQuiz',
-				component:MakeQuiz
+				path:'/quiz',
+				name:'Quiz',
+				component:Quiz
 			},
 			{
 				path:'/whiteboard',

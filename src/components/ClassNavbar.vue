@@ -44,7 +44,7 @@
                 </v-layout>
 
             <v-list dense nav>
-                <v-list-item  v-for="link in links" :key="link.text" router :to="link.route">
+                <v-list-item    v-for="link in links" :key="link.text" router :to="link.route" >
                     <v-list-item-action>
                         <v-icon class="white--text">{{ link.icon }}</v-icon>
                     </v-list-item-action>
@@ -72,11 +72,14 @@
                 drawer: true,
                 links: [
                     { icon: 'featured_video', text: 'Class',route:'/classScreen' },
-                    { icon: 'check_circle_outline', text: 'Make a Quiz',route:'/makequiz' },
+                    { icon: 'check_circle_outline', text: 'Quiz',route:'/quiz' },
                     { icon: 'aspect_ratio', text: 'White board',route:'/whiteboard'},
                     { icon: 'announcement', text: 'News',route:'/news'}
                     
                 ],
+                std_dep:[],
+                teacher_dep:[],
+                owner_dep:[],
                 dialog:false
                 
             }
