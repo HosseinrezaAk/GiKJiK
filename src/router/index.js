@@ -9,6 +9,8 @@ import Quiz from '../components/Quiz.vue'
 import Whiteboard from '../components/Whiteboard.vue'
 import News from '../components/News.vue'
 import ClassScreen from '../components/ClassScreen.vue'
+import QuizMaker from '../components/QuizMaker.vue'
+
 Vue.use(VueRouter)
 
 	const routes = [
@@ -59,6 +61,11 @@ Vue.use(VueRouter)
 				path:'/news',
 				name:'News',
 				component:News
+			},
+			{
+				path:'/quizmaker',
+				name:'QuizMaker',
+				component:QuizMaker
 			},
 		]
 	},

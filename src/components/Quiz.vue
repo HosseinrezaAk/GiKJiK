@@ -5,10 +5,6 @@
         <v-container class="my-5">
             <v-row>
                 <v-col  cols="12" sm="3" >
-                    <v-dialog v-model="dialog" width="500">
-
-                    
-                    <template v-slot:activator="{ on, attrs }">
                         <v-card v-bind="attrs" v-on="on" flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
                             
                             <v-card-text class="py-12"  >
@@ -22,14 +18,6 @@
                             <v-col cols="12" mx-auto justify="center" align="center" >  
                             </v-col>         
                         </v-card>
-                    </template>
-                    
-                    <v-card>
-                        hi
-                    </v-card>
-
-
-                    </v-dialog>
                 </v-col>
 
 
@@ -69,12 +57,12 @@
     export default {
         data() {
             return {
-                question:{problem:'',quizDate:'',answer:'',option1:'',option2:'',option3:'',option4:''},
+                question:{problem:'',answer:'',option1:'',option2:'',option3:'',option4:''},
                 quizes:[
-                    {title:'Chapter-1', teacher:'teacher-1', status:'notYet'},
-                    {title:'Chapter-2', teacher:'teacher-1', status:'ongoing'},
-                    {title:'Chapter-3', teacher:'teacher-2', status: 'ended'},
-                    {title:'Chapter-4', teacher:'teacher-2', status: 'ended'}
+                    {title:'Chapter-1', teacher:'teacher-1', status:'notYet',quizDate:''},
+                    {title:'Chapter-2', teacher:'teacher-1', status:'ongoing',quizDate:''},
+                    {title:'Chapter-3', teacher:'teacher-2', status: 'ended',quizDate:''},
+                    {title:'Chapter-4', teacher:'teacher-2', status: 'ended',quizDate:''}
                 ],
                 role:'',
                 dialog: false,
@@ -83,7 +71,7 @@
         },
         methods:{
             addQuiz: function(){
-                console.log("ADDED")
+                this.$router.push({name:'QuizMaker'})
             }
         }
     }
