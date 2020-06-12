@@ -1,32 +1,64 @@
 <template>
     <div class="quiz mx-12" >
-        <h2 class="subtitle-1 teal--text mt-7 "> Quiz</h2>
 
-<!-- <v-container class="grey lighten-5">
-            <v-row >
-            <v-col v-for="n in 4" :key="n" cols="12" sm="3">
-                <v-card class="pa-2"  flat   tile   >
-                One of three columns
-                </v-card>
-            </v-col>
-            </v-row>
-        </v-container> -->
+        <h2 class="heading-6 teal--text mt-7 "> Quiz</h2>
         <v-container class="my-5">
             <v-row>
+                <v-col  cols="12" sm="3" >
+                    <v-dialog v-model="dialog" width="500">
+
+                    
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-card v-bind="attrs" v-on="on" flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
+                            
+                            <v-card-text class="py-12"  >
+                                
+                                <div class="d-flex justify-center grey--text my-4"> Add a new Quiz </div>
+                                <div class="d-flex justify-center my-4">
+                                    <v-icon x-large>library_add</v-icon>
+                                </div>
+                            </v-card-text>
+                        
+                            <v-col cols="12" mx-auto justify="center" align="center" >  
+                            </v-col>         
+                        </v-card>
+                    </template>
+                    
+                    <v-card>
+                        hi
+                    </v-card>
+
+
+                    </v-dialog>
+                </v-col>
+
+
                 <v-col v-for="quiz in quizes" :key="quiz.title" cols="12" sm="3">
-                    <v-card flat class="text-center ma-3 mx-auto" max-width="344" >
+                    <v-card flat class="text-center ma-3 "  >
                         <v-card-text>
                             <div class="subtitle-1">{{quiz.title}}</div>
                             <div class="grey--text"> {{ quiz.teacher}}</div>
                         </v-card-text>
-                        <v-card-action>
-                            <v-btn text color="teal accent-4" class="mb-3">
+                        <div>
+                            <v-chip label :class="` ${quiz.status} white--text caption my-1`" small>{{ quiz.status }}</v-chip>
+                        </div>
+                        <v-col cols="12" mx-auto justify="center" align="center" >
+                            <v-btn  text color="teal accent-4" class="my-3" >
+                                <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
-                                
                             </v-btn>
-                        </v-card-action>
+                            <v-btn text color="red darken-4" class="my-3">
+                                <v-icon left >edit</v-icon>
+                                <span>Edit</span>
+                            </v-btn>
+                            <v-btn text color="deep-purple darken-3" class="my-3">
+                                <v-icon left >trending_up</v-icon>
+                                <span>Result</span>
+                            </v-btn>            
+                        </v-col>         
                     </v-card>
                 </v-col>
+
             </v-row>
                 
         </v-container>
@@ -43,9 +75,31 @@
                     {title:'Chapter-2', teacher:'teacher-1', status:'ongoing'},
                     {title:'Chapter-3', teacher:'teacher-2', status: 'ended'},
                     {title:'Chapter-4', teacher:'teacher-2', status: 'ended'}
-                ]
+                ],
+                role:'',
+                dialog: false,
 
             }
         },
+        methods:{
+            addQuiz: function(){
+                console.log("ADDED")
+            }
+        }
     }
 </script>
+
+<style >
+
+    .v-chip.ongoing{
+        background: #64DD17 !important;
+    }
+    .v-chip.ended{
+        background: tomato!important;
+    }
+    .v-chip.notYet{
+        background: orange!important;
+    }
+    
+
+</style>
