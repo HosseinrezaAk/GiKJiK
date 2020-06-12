@@ -1,9 +1,9 @@
 <template>
-    <div class="whiteboard">
+    <div class="createQuiz">
+
         
     </div>
 </template>
-
 
 <script>
     export default {
