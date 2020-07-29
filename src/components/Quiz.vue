@@ -2,7 +2,7 @@
     <div class="quiz mx-12" >
 
         <h2 class="heading-6 teal--text mt-7 "> Quiz</h2>
-        <v-container class="my-5">
+        <v-container class="my-5 mx-7 ">
             <v-row>
                 <v-col  cols="12" sm="3" >
                         <v-card v-bind="attrs" v-on="on" flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
