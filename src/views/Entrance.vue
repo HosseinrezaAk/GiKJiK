@@ -22,17 +22,19 @@
                           <v-icon class="">fab fa-linkedin-in</v-icon>
                         </v-btn> -->
                       </div>
-                      <h4 class="text-center mlt-4">Ensure your email for resitration</h4>
+                      <h4 class="text-center mlt-4">Ensure your Username for resitration</h4>
                       <v-form>
                         <v-text-field 
-                        label="Email"
-                        name="Email"
-                        prepend-icon="email"
+                        label="Username"
+                        name="username"
+                        prepend-icon="person"
+						v-model="username"
                         type="text"
                         color="teal accent-4">
                         </v-text-field>
                         <v-text-field
                         id="password"
+						v-model="password"
                         label="Password"
                         name="Password"
                         prepend-icon="lock"
@@ -44,7 +46,7 @@
 
                     </v-card-text>
                     <div class="text-center mt-3">
-                      <v-btn rounded color="teal accent-4" dark @click="move">SIGN IN</v-btn>
+                      <v-btn rounded color="teal accent-4" dark @click="signin">SIGN IN</v-btn>
                     </div> 
                   </v-col>
                   <v-col cols="12" md="4" class="teal accent-4">
@@ -83,22 +85,14 @@
                     <v-card-text class="mt-12">
                       <h1 class="text-center display-2 teal--text text--accent-4">Create Account</h1>
                       <div class="text-center mt-4">
-                        <!-- <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-facebook-f</v-icon>
-                        </v-btn>
-                        <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-google-plus-g</v-icon>
-                        </v-btn>
-                        <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-linkedin-in</v-icon>
-                        </v-btn> -->
-
+                        
                       </div>
                       <h4 class="text-center mt-4">Ensure your Email for registration</h4>
                       <v-form>
                         <v-text-field
-                        label="Name"
+                        label="Username"
                         name="Name"
+						v-model="username"
                         prepend-icon="person"
                         type="text"
                         color="teal accent-4">
@@ -107,19 +101,21 @@
                         <v-text-field
                         label="Email"
                         name="Email"
+						v-model="email"
                         prepend-icon="email"
                         type="text"
                         color="teal accent-4" />
                         <v-text-field
                         label="Password"
                         name="Password"
+						v-model="password"
                         prepend-icon="locl"
                         type="password"
                         color="teal accent-4" />
                       </v-form>
                     </v-card-text>
                     <div class="text-center mt-n5">
-                      <v-btn rounded color="teal accent-4" dark @click="move">SIGN UP</v-btn>
+                      <v-btn rounded color="teal accent-4" dark @click="signup">SIGN UP</v-btn>
 
                     </div>
 
@@ -135,18 +131,40 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data: () =>({
+		username:'',
+		email:'',
+		password:'',
+		token:'',
       step: 1
     }),
     props:{
       source: String
-    },
+	},
+	
+	
     methods:{
-        move:function(){
-            
-            this.$router.push({name:'User'});
-        }
+		signup:function(){
+			axios.post('http://127.0.0.1:8000/sign-up/', {
+				username: this.username,
+				email: this.email,
+				password: this.password
+			}).then(response=> (this.$router.push({name:'User'})))
+			console.log(this.token)
+		},
+		signin:function() {
+			axios.post('http://127.0.0.1:8000/api/token/',{
+				username: this.username,
+				password: this.password,
+			}).then(response => (this.$router.push({name:'User'})) )
+		},
+		move:function(){
+			
+			this.$router.push({name:'User'});
+			console.log(this.username)
+		}
     }
   };
 </script>

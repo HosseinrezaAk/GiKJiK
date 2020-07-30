@@ -28,9 +28,9 @@
                         </v-container>
                         <v-btn text class="teal lighten-5 " color="teal accent-4" @click="add(k)"   >Add Choice</v-btn>
                         <v-btn text class="teal lighten-5 mx-3" color="teal accent-4" @click="remove(k)"  >Delete Choice</v-btn>
-						<v-textarea label="solution" v-model="content" prepend-icon="edit"></v-textarea>
+						<v-textarea label="Solution" v-model="content" prepend-icon="edit"></v-textarea>
                         
-						<v-btn text class="teal lighten-5 " color="teal accent-4"  @click="submit" :loading="loading">Submit</v-btn>
+						<v-btn text class="teal lighten-5 " color="teal accent-4"  @click="addQues" :loading="loading">Submit</v-btn>
                         
 
 					</v-form>
@@ -44,20 +44,39 @@
 
 
 <script>
+    import QuizMaker from './QuizMaker'
+    
     export default {
+        
         data() {
             return {
                 choices :[
+                    {
+                        name:''
+                    }
                     
+                ],
+                questions:[
+                    {
+                        problemTitle:'this is important',  
+                    }
                 ]
+
             }
         },
         methods: {
-            add(index) {
+            add:function(index) {
             this.choices.push({ name: '' });
             },
-            remove(index) {
+            remove:function(index) {
                 this.choices.splice(index, 1);
+            },
+            submit:function(){
+
+            },
+            addQues:function(){
+
+                this.$emit('addQues', this.questions);
             }
     
         },   

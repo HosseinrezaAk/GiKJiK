@@ -14,7 +14,7 @@
 				<v-card-text>
 					<v-form class="px-3" ref="form">
 						<v-text-field label="Title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
-						<v-textarea label="information" v-model="content" prepend-icon="edit"></v-textarea>
+						<v-text-field label="Class ID" v-model="classID" prepend-icon="class" :rules="inputRules"></v-text-field>
 						<v-btn text class="success  mt-3" @click="submit" :loading="loading">Add Class</v-btn>
 					</v-form>
 				</v-card-text>
@@ -27,11 +27,13 @@
 </template>
 
 <script>
-	import db from '../fb'
+	import axios from 'axios'
+	
 	export default {
 		data() {
 			return {
 				title:'',
+				classID:'',
 				content:'',
 				inputRules:[
 					v => v.length >= 3 || 'Minimum length is 3 characters'
@@ -42,25 +44,18 @@
 		},
 		methods: {
 			submit: function(){
-				if(this.$refs.form.validate()){
-					this.loading = true;
-					const aclass = {
-
+				axios.post('http://127.0.0.1:8000/class/create/', {
 						title: this.title,
-						content: this.content,
-						class_id:'id6',
-						teacher: 'hamze',
-						status: 'Online'
-					}
-					db.collection('classes').add(aclass).then(()=>{
-						this.loading = false;
-						this.dialog = false;
-						this.$emit('projectAdded')
+						classID: this.classID,
+						
 					})
+					.then(function (response){
+						console.log(response);
+					})
+					.catch(function(error){
+						console.log(error);
+					});
 					
-
-				}
-				
 			}
 		},
 	}

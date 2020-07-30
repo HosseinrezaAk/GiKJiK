@@ -71,8 +71,7 @@
 
 <script>
     import Navbar from '../components/Navbar'
-    import db from '../fb'
-
+    
 	export default {
         data() {
             return {
@@ -94,19 +93,7 @@
                 
             }
         },
-        created() {
-            db.collection('classes').onSnapshot(res =>{
-                const changes = res.docChanges();
-                changes.forEach(change => {
-                    if(change.type === 'added'){
-                        this.classes.push({
-                            ...change.doc.data(),
-                            id: change.doc.id
-                        })
-                    }
-                })
-            }) 
-        },
+        
         
 	}
 </script>

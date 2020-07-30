@@ -13,7 +13,17 @@
                         label="Quiz Topic"
                     ></v-text-field>
                     </v-form>
-                    <app-add-question-popup></app-add-question-popup>
+                    
+                    <app-add-question-popup v-bind:questions="questions" v-on:addQues="addQues($event)"></app-add-question-popup>
+
+                    <v-container>
+                        <v-row>
+                            <v-col>
+                                {{questions}}
+                            </v-col>
+                        </v-row>
+                        
+                    </v-container>
                 </v-col>
 
             
@@ -33,7 +43,20 @@
             
             appAddQuestionPopup: addQuestionPopup
 
-        }
+        },
+        
+        data() {
+            return {
+                questions:[],        
+
+               
+            }
+        },
+        methods: {
+            addQues:function(newQues){
+                this.questions= newQues;
+            }
+        },
         
     }
 </script>
