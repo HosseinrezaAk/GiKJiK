@@ -45,8 +45,8 @@
 		methods: {
 			submit: function(){
 				axios.post('http://127.0.0.1:8000/class/create/', {
-						title: this.title,
-						classID: this.classID,
+						name: this.title,
+						class_id: this.classID,
 						
 					})
 					.then(function (response){

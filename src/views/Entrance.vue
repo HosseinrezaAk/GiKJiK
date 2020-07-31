@@ -151,14 +151,28 @@ import axios from 'axios'
 				username: this.username,
 				email: this.email,
 				password: this.password
-			}).then(response=> (this.$router.push({name:'User'})))
-			console.log(this.token)
+			}).then((response) =>{
+				let token = response.data.access;
+				localStorage.setItem("LearnOnlineToken", 'Bearer ' + token);
+				axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+				(this.$router.push({name:'User'}));
+				console.log("THIS IS TOKEN " + token)
+				})
+			
 		},
 		signin:function() {
-			axios.post('http://127.0.0.1:8000/api/token/',{
+			axios.post('http://127.0.0.1:8000/log-in/',{
 				username: this.username,
 				password: this.password,
-			}).then(response => (this.$router.push({name:'User'})) )
+			})
+			.then( (response) => {
+				
+				let token = response.data.access;
+				localStorage.setItem("LearnOnlineToken", 'Bearer ' + token);
+				axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+				(this.$router.push({name:'User'}));
+				console.log("THIS IS TOKEN " + token)
+				})
 		},
 		move:function(){
 			

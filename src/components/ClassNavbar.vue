@@ -32,8 +32,8 @@
                         <v-avatar size="100">
                             <img src="/avatar-1.png" alt="">
                         </v-avatar>
-                        <p class="white--text subtitle-1 mt-3">
-                            Hosseinreza
+                        <p class="white--text subtitle-1 mt-3" align="center">
+                            {{username}}
                         </p>
                     </v-flex>
 
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import CreateClassPopup from './CreateClassPopup'
     import ShowMembersPopup from './ShowMembersPopup'
     export default {
@@ -69,6 +70,7 @@
         },
         data() {
             return {
+                username:'',
                 drawer: true,
                 links: [
                     { icon: 'featured_video', text: 'Class',route:'/classScreen' },
@@ -88,6 +90,13 @@
             move:function(){
                 this.$router.push({name :'User'})
             }
+        },
+        created(){
+            axios.get('http://127.0.0.1:8000/username/retrieve/')
+            .then(response =>{
+                this.username = response.data.username
+                console.log(this.username)
+            })
         }
         
     }

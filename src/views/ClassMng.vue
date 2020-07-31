@@ -31,16 +31,16 @@
                 </v-layout>
 
 
-                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.title" @click="moveToClass" >
+                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.name" @click="moveToClass" >
                     <v-layout row wrap :class="`pa-4 eachClass ${eachClass.status}`">
                         <v-flex xs12 md6>
                             <div class="caption grey--text">Class title</div>
-                            <div> {{ eachClass.title }}</div>
+                            <div> {{ eachClass.name }}</div>
                         </v-flex>
 
                         <v-flex xs6 sm4 md2>
                             <div class="caption grey--text">Teacher</div>
-                            <div> {{eachClass.teacher}}</div>
+                            <div> {{eachClass.teachers}}</div>
                         </v-flex>
 
                         <v-flex xs6 sm4 md2>
@@ -71,13 +71,16 @@
 
 <script>
     import Navbar from '../components/Navbar'
-    
+    import axios from 'axios'
 	export default {
         data() {
             return {
                 classes: [
-                    { title: 'Algorithm', teacher: 'Sadr', class_id: 'ID1', status: 'Online', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-                    ]
+                    {}
+                   
+                    ],
+                    teacherName :'',
+                    one:1
             }
         },
 	
@@ -92,6 +95,21 @@
                 this.$router.push({name : 'MainClass'})
                 
             }
+        },
+        created() {
+            
+            axios.get('http://127.0.0.1:8000/user/student/in/')
+            .then(response => {
+                this.classes = response.data
+                console.log(this.classes)
+                console.log( "this is ONE " +parseInt(this.classes[0].teachers[0]))
+            })
+
+            axios.get(`http://127.0.0.1:8000/user/${3}/retrieve/`)
+            .then(response =>{
+                this.teacherName = response.data.username
+                console.log(response.data)
+            })
         },
         
         
