@@ -8,7 +8,7 @@
                     <v-row dense>
 
                         <v-col  v-for="(item, i) in items" :key="i" cols="12">
-                            <v-card color="teal darken-4" dark>
+                            <v-card color="teal darken-3" dark>
                                 <div class="">
                                     <div>
                                         

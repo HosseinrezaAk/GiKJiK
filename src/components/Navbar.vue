@@ -5,7 +5,7 @@
             <v-btn text color="white" @click="snackbar = false">Close</v-btn>
         </v-snackbar>
         <v-toolbar flat class="teal lighten-5" >
-            <v-app-bar-nav-icon color="teal accent-4" @click="drawer = !drawer"></v-app-bar-nav-icon>
+            <!-- <v-app-bar-nav-icon color="teal accent-4" @click="drawer = !drawer"></v-app-bar-nav-icon> -->
             
             <v-toolbar-title class="text-uppercase " >
                 <span class="font-weight-light " style="color:#00BFA5;" >GiK</span>
@@ -13,7 +13,25 @@
             </v-toolbar-title>
 
             <v-spacer></v-spacer>
+            <v-row>
+                <v-col cols="12" sm="3">
+                    
+                </v-col>  
+                <v-col cols="12" sm="3">
+                    
+                </v-col> 
+                <v-col cols="12" sm="6">
+                    <!-- <v-text-field outlined label="Search Class" solo  rounded  dense  append-icon="search"  class="mt-6" >
 
+                    </v-text-field> -->
+                </v-col> 
+                    
+                
+                   
+            
+                
+            </v-row>
+                
             <v-menu offset-y>
                 <template v-slot:activator="{ on }">
                     <v-btn text v-on="on" color="teal accent-4">
@@ -40,7 +58,7 @@
             color="teal"
             v-model="drawer"
             bottom
-            temporary
+            
                 >
                 <v-layout column align-center>
                     <v-flex class="mt-8 mb-5">
@@ -84,7 +102,7 @@
             return {
                 username:'',
 
-                drawer: false,
+                drawer: true,
                 links: [
                     { icon: 'home', text: 'Home', route: '/userHome'},
                     { icon: 'class', text: 'Class Manager', route: '/classmanagment'},

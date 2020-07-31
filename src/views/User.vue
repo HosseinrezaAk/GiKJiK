@@ -1,16 +1,39 @@
 <template>
-	<div>
+	<div class="">
 		<app-navbar></app-navbar>
-		
-		<div class="mx-5 mt-6">
-			<h2>THIS IS HOME</h2>
-			<div class="my-5 mx-7">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					Reiciendis consectetur, adipisci ipsam est totam corrupti 
-					cumque consequuntur aperiam doloremque iste dolore.
-					Voluptatem facere, vel ratione quaerat numquam officia 
-					maiores quisquam.</p>
-			</div>
+		<div class="mx-12">
+			<h2 class="heading-3 teal--text mt-7 "> WELCOME
+				
+			</h2>
+			<v-container class="my-5 mx-7  ">
+				<v-row class="mt-5">
+					<v-col cols="12" sm="2" >
+
+					</v-col>
+					
+					<v-col cols="12" sm="8"  >
+						<v-text-field outlined label="Class ID" filled solo clearable  
+						 prepend-inner-icon="search"  class="mt-6" >
+						</v-text-field>
+						 
+					
+					</v-col>
+					<v-col cols="12" sm="2" >
+						<v-btn class="mt-7" outlined color="teal darken-1" large>Search</v-btn>
+					</v-col>
+				</v-row>
+				
+				<!-- CLASS CARDS SECTIONS -->
+				<v-row class="mt-5">
+					<v-col cols="12" sm="2" ></v-col>
+					<v-col cols="12" sm="8"  > 
+						
+					</v-col>
+					<v-col cols="12" sm="2" > </v-col>
+				</v-row>
+
+
+			</v-container>
 		</div>
 		
 	</div>
