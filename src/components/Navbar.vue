@@ -118,7 +118,7 @@
             }
         },
         created(){
-            axios.get('http://127.0.0.1:8000/username/retrieve/')
+            axios.get('http://127.0.0.1:8000/username/retrieve/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response =>{
                 this.username = response.data.username
                 console.log(this.username)

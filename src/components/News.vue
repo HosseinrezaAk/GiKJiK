@@ -3,12 +3,12 @@
         <h2 class="heading-6 teal--text mt-7 "> News</h2>
         <v-container class="my-5 mx-7 " >
             
-            <v-card max-width="1000" class="ml-12" >
+            <v-card raised max-width="1000" class="ml-12" >
                 <v-container>
                     <v-row dense>
 
                         <v-col  v-for="(item, i) in items" :key="i" cols="12">
-                            <v-card color="teal darken-3" dark>
+                            <v-card  color="teal darken-3" dark>
                                 <div class="">
                                     <div>
                                         
@@ -85,12 +85,12 @@
             }
         },
         created(){
-            axios.get(`http://127.0.0.1:8000/class/${"hossein_3"}/blackboard/`)
+            axios.get(`http://127.0.0.1:8000/class/${"hossein_3"}/blackboard/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 this.items = response.data
                 console.log(this.items)
             })
-            axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`)
+            axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response =>{
                 this.author = response.data.username
 

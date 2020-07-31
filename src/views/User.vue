@@ -19,17 +19,48 @@
 					
 					</v-col>
 					<v-col cols="12" sm="2" >
-						<v-btn class="mt-7" outlined color="teal darken-1" large>Search</v-btn>
-					</v-col>
+						<v-btn class="mt-7 " outlined  color="teal darken-1" large>Search</v-btn>
+					</v-col> 
 				</v-row>
 				
 				<!-- CLASS CARDS SECTIONS -->
-				<v-row class="mt-5">
-					<v-col cols="12" sm="2" ></v-col>
-					<v-col cols="12" sm="8"  > 
-						
+				<v-row class="">
+					<v-col cols="12" sm="3" ></v-col>
+					<v-col cols="12" sm="6"  > 
+						<v-card color="" raised>
+							<v-card-title primary-title>
+								<v-icon left large color="teal accent-5">
+									school
+								</v-icon>
+								Algorithm
+							</v-card-title>
+							<v-card-subtitle class="ml-11" >
+								@ Algo98 
+							</v-card-subtitle>
+
+							<v-card-text class="  subtitle-1 ">
+								<v-icon left large color="teal accent-5">
+									
+								</v-icon>
+								Teacher: Asghar Farhadi
+							</v-card-text>
+
+							<v-card-actions>
+								<v-list-item class="grow">
+								
+
+								<v-row
+								align="center"
+								justify="end"
+								>
+								<v-btn outlined color="teal darken-1" large> JOIN</v-btn>
+								</v-row>
+								</v-list-item>
+							</v-card-actions>
+
+						</v-card>
 					</v-col>
-					<v-col cols="12" sm="2" > </v-col>
+					<v-col cols="12" sm="3" > </v-col>
 				</v-row>
 
 

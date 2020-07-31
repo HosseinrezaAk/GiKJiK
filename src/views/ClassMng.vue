@@ -98,14 +98,14 @@
         },
         created() {
             
-            axios.get('http://127.0.0.1:8000/user/student/in/')
+            axios.get('http://127.0.0.1:8000/user/student/in/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 this.classes = response.data
                 console.log(this.classes)
                 console.log( "this is ONE " +parseInt(this.classes[0].teachers[0]))
             })
 
-            axios.get(`http://127.0.0.1:8000/user/${3}/retrieve/`)
+            axios.get(`http://127.0.0.1:8000/user/${3}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response =>{
                 this.teacherName = response.data.username
                 console.log(response.data)
