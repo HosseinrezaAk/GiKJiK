@@ -48,7 +48,8 @@
 						name: this.title,
 						class_id: this.classID,
 						
-					})
+					},
+					 { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
 					.then(function (response){
 						console.log(response);
 					})

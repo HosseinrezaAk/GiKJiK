@@ -64,18 +64,7 @@
                 singleNews:{},
                 news:[],
                 items: [
-                    {
-                        title: 'Supermodel',
-                        author: 'Dr mansoori',
-                        description:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore, ipsam. Aliquam et temporibus doloremque nihil omnis fugiat inventore at laudantium vero facere alias vitae magnam deserunt eaque odio, voluptatem fugit!p',
-                        date:''
-                    },
-                    {
-                        title: 'Halcyon Days',
-                        author: 'Ellie Goulding',
-                        description:'',
-                        date:''
-                    },
+                   
                 ],
             }
         },

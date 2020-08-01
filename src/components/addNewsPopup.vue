@@ -70,8 +70,13 @@
                 axios.post(`http://127.0.0.1:8000/class/${"hossein_3"}/add/news/` ,{
                     title: this.title,
                     description: this.description,
-                    date :this.date
-                })
+                    date :this.date,
+                    
+                },
+                 { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }}
+                 ),
+                 window.location.reload()
+                this.dialog= false
                 this.$emit('addNews', this.singleNews);
             }
         },
