@@ -177,7 +177,7 @@ import axios from 'axios'
 		move:function(){
 			
 			this.$router.push({name:'User'});
-			console.log(this.username)
+			
 		}
     }
   };

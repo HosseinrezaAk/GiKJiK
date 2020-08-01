@@ -12,6 +12,7 @@
                         
                         label="Quiz Topic"
                     ></v-text-field>
+                    <v-text-field label= "Deadline"></v-text-field>
                     </v-form>
                     <v-btn dark text  class="teal lighten-5 " color="teal accent-4" v-if="submit_flag" @click="submitQuiz">
 					    submit Quiz

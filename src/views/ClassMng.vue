@@ -38,12 +38,12 @@
                 </v-row>
 
                 
-                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.key" @click="moveToClass" >
+                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.key" @click="moveToClass(eachClass.class_id)" >
                     
                         <v-row  :class="`pa-4 eachClass ${eachClass.status}`">
                             <v-flex xs12 md4>
                                 <div class="caption grey--text">Class title</div>
-                                <div> {{ eachClass.name }}</div>
+                                <div  > {{ eachClass.name }}</div>
                             </v-flex>
 
                             <v-flex xs6 sm4 md4>
@@ -51,23 +51,24 @@
                                 <div> {{eachClass.teachers}}</div>
                             </v-flex>
 
-                            <v-flex xs6 sm4 md2>
+                            <v-flex xs6 sm2 md2>
                                 <div class="caption grey--text">Class ID</div>
                                 <div> {{ eachClass.class_id}}</div>
                             </v-flex>
-                            <v-flex xs2 sm4 md1>
+                            <v-flex xs2 sm1 md1>
                                 <div class=" ">
                                     <v-chip  :class="` ${eachClass.status} white--text caption my-2`">{{eachClass.status}}</v-chip>
                                 </div>
                             </v-flex> 
-                            <v-flex xs2 sm4 md1>
+                            <v-flex xs2 sm1 md1>
                                 <div class=" ">
                                     <v-chip  :class="` ${eachClass.role} white--text caption my-2`">{{eachClass.role}}</v-chip>
                                 </div>
                             </v-flex> 
+                            
                                                
                         </v-row>
-
+                        
                 </v-card>
             </v-container >
 
@@ -102,9 +103,13 @@
             sortBy: function(prop){
                 this.classes.sort((a,b) => a[prop] < b[prop] ? -1 :1)
             },
-            moveToClass: function(){
-                this.$router.push({name : 'MainClass'})
+            moveToClass: function(variable){
+                this.$router.push({name : 'MainClass', params: {variable}})
+                console.log("THIS IS CLASS MANAGE"+ variable)
                 
+            },
+            quitClass:function(){
+                console.log("ASDASDAS")
             }
         },
         mounted() {
