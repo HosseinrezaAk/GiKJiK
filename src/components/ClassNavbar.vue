@@ -7,6 +7,17 @@
             <v-toolbar-title class="text-uppercase " >
                 <span class="font-weight-light " style="color:#00BFA5;" >GiK</span>
                 <span  style="color:#00BFA5;">JiK</span>
+
+               
+                  
+                <!-- <span class="caption teal--text ml-5 ">(@{{class_id}})</span> -->
+                <!-- <span class="caption teal--text ">({{inRole}})</span> -->
+
+                <v-chip  small class="ml-5  " outlined label color="teal darken-2" > @{{class_id}} </v-chip>  
+                <!-- <v-chip  small class="ml-1 mb-1"  color="teal darken-4" text-color="white">{{inRole}}</v-chip>     -->
+                
+                
+                
             </v-toolbar-title>
 
             <v-spacer></v-spacer>
@@ -82,7 +93,9 @@
                 std_dep:[],
                 teacher_dep:[],
                 owner_dep:[],
-                dialog:false
+                dialog:false,
+                class_id:'',
+                inRole:''
                 
             }
         },
@@ -96,7 +109,10 @@
             .then(response =>{
                 this.username = response.data.username
                 console.log(this.username)
-            })
+            }),
+            
+            this.class_id = localStorage.getItem("vClass_id"),
+            this.inRole = localStorage.getItem("vRole")
         }
         
     }

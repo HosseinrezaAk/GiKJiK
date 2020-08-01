@@ -15,11 +15,11 @@
 				</v-card-title>
 				<v-card-text>
 					<v-form class="px-3" ref="form">
-						<v-text-field label="Problem title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
+						<v-text-field label="Problem title" v-model="title" prepend-icon="title" ></v-text-field>
                         <v-container >
                             <v-row align="center" v-for="(choice,k) in choices" :key="k" >
                                 <v-checkbox
-                                v-model="includeFiles"
+                                
                                 hide-details
                                 class="shrink mr-2 mt-0"
                                 ></v-checkbox>
@@ -28,9 +28,19 @@
                         </v-container>
                         <v-btn text class="teal lighten-5 " color="teal accent-4" @click="add(k)"   >Add Choice</v-btn>
                         <v-btn text class="teal lighten-5 mx-3" color="teal accent-4" @click="remove(k)"  >Delete Choice</v-btn>
-						<v-textarea label="Solution" v-model="content" prepend-icon="edit"></v-textarea>
-                        
-						<v-btn text class="teal lighten-5 " color="teal accent-4"  @click="addQues" :loading="loading">Submit</v-btn>
+						<v-textarea label="Solution" class="" v-model="solution" prepend-icon="edit"></v-textarea>
+                        <v-row>
+                            <v-col>
+                                <v-text-field class="ml-5" label="Point" v-model="point"></v-text-field>
+                            </v-col>
+                            <v-col>
+
+                            </v-col>
+                            <v-col>
+
+                            </v-col>
+                        </v-row>
+						<v-btn text class="teal lighten-5 " color="teal accent-4"  @click="addQues" >Submit</v-btn>
                         
 
 					</v-form>
@@ -44,6 +54,7 @@
 
 
 <script>
+    import axios from 'axios'
     import QuizMaker from './QuizMaker'
     
     export default {
@@ -51,6 +62,10 @@
         data() {
             return {
                 dialog:false,
+                title:'',
+                solution:'',
+                point:'',
+                quiz_id:localStorage.getItem("vQuiz_id"),
                 choices :[
                     {
                         name:''
@@ -77,7 +92,16 @@
             },
             addQues:function(){
 
-                this.$emit('addQues', this.questions);
+                axios.post('http://127.0.0.1:8000/quiz/'+this.quiz_id +'/add/question/',{
+                    problem: this.title,
+                    solution: this.solution,
+                    point:this.point
+     
+                },{ headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+                .then(response =>{
+                    console.log(response.data)
+                    dialog:false;
+                })
             }
     
         },   

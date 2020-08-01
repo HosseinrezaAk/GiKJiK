@@ -38,7 +38,7 @@
                 </v-row>
 
                 
-                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.key" @click="moveToClass(eachClass.class_id)" >
+                <v-card flat class="pl-3 mb-1" v-for="eachClass in classes" :key="eachClass.key" @click="moveToClass(eachClass.class_id, eachClass.role)" >
                     
                         <v-row  :class="`pa-4 eachClass ${eachClass.status}`">
                             <v-flex xs12 md4>
@@ -103,18 +103,21 @@
             sortBy: function(prop){
                 this.classes.sort((a,b) => a[prop] < b[prop] ? -1 :1)
             },
-            moveToClass: function(variable){
-                this.$router.push({name : 'MainClass', params: {variable}})
-                console.log("THIS IS CLASS MANAGE"+ variable)
+            moveToClass: function(vClassId,vRole){
+                this.$router.push({name : 'MainClass'})
+                localStorage.setItem("vClass_id", vClassId);
+                localStorage.setItem("vRole",vRole)
+                console.log("THIS IS ROLE TOOYE CLASS MANG"+vRole)
+                
                 
             },
             quitClass:function(){
                 console.log("ASDASDAS")
             }
         },
-        mounted() {
+       async created() {
             
-            axios.get('http://127.0.0.1:8000/user/student/in/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+           await axios.get('http://127.0.0.1:8000/user/student/in/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 this.classes = response.data
                 for(this.counter = 0;this.counter<this.classes.length; this.counter ++){
@@ -124,7 +127,7 @@
                 
                 
             })
-            axios.get('http://127.0.0.1:8000/user/teacher/in/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+           await axios.get('http://127.0.0.1:8000/user/teacher/in/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 
                 
@@ -139,7 +142,7 @@
                 
                 
             })
-            axios.get('http://127.0.0.1:8000/user/owner/of/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+          await  axios.get('http://127.0.0.1:8000/user/owner/of/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 
 

@@ -2,7 +2,7 @@
     <div class="mainClass">
             
             <app-classnavbar></app-classnavbar>
-            <router-view></router-view>
+            <router-view ></router-view>
         
         
         
@@ -18,15 +18,14 @@
         },
         data() {
             return {
-                alo:''
+                class_id:''
             }
         },
         methods: {
             
         },
         created() {
-            this.alo = this.$route.params.variable
-            console.log(this.alo)
+            
         },
         
     }

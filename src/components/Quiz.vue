@@ -1,11 +1,11 @@
 <template>
     <div class="quiz mx-12" >
 
-        <h2 class="heading-6 teal--text mt-7 "> Quiz</h2>
+        <h2 class="heading-6 teal--text mt-7 "> Quiz </h2>
         <v-container class="my-5 mx-7 ">
             <v-row>
                 <v-col  cols="12" sm="3" >
-                        <v-card v-bind="attrs" v-on="on" flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
+                        <v-card flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
                             
                             <v-card-text class="py-12"  >
                                 
@@ -49,15 +49,20 @@
 
             </v-row>
                 
+                
         </v-container>
     </div>
 </template>
 
 <script>
     export default {
+        props:['the_classID'],
+
         data() {
             return {
+                class_id:'',
                 question:{problem:'',answer:'',option1:'',option2:'',option3:'',option4:''},
+                
                 quizes:[
                     {title:'Chapter-1', teacher:'teacher-1', status:'notYet',quizDate:''},
                     {title:'Chapter-2', teacher:'teacher-1', status:'ongoing',quizDate:''},
@@ -73,6 +78,11 @@
             addQuiz: function(){
                 this.$router.push({name:'QuizMaker'})
             }
+        },
+        created(){
+            this.class_id = localStorage.getItem("vClass_id")
+            this.inRole = localStorage.getItem("vRole")
+            // console.log(this.class_id)
         }
     }
 </script>
