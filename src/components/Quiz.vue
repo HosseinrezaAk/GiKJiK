@@ -21,11 +21,11 @@
                 </v-col>
 
 
-                <v-col v-for="quiz in quizes" :key="quiz.title" cols="12" sm="3">
+                <v-col v-for="(quiz,i) in quizes" :key="i" cols="12" sm="3">
                     <v-card flat class="text-center ma-3 "  >
                         <v-card-text>
                             <div class="subtitle-1">{{quiz.title}}</div>
-                            <div class="grey--text"> {{ quiz.teacher}}</div>
+                            <div class="grey--text"> {{ quiz.author}}</div>
                         </v-card-text>
                         <div>
                             <v-chip label :class="` ${quiz.status} white--text caption my-1`" small>{{ quiz.status }}</v-chip>
@@ -55,12 +55,13 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         props:['the_classID'],
 
         data() {
             return {
-                class_id:'',
+                class_id:localStorage.getItem("vClass_id"),
                 question:{problem:'',answer:'',option1:'',option2:'',option3:'',option4:''},
                 
                 quizes:[
@@ -82,20 +83,25 @@
         created(){
             this.class_id = localStorage.getItem("vClass_id")
             this.inRole = localStorage.getItem("vRole")
-            // console.log(this.class_id)
+            axios.get("http://127.0.0.1:8000/class/"+this.class_id+"/quiz/list/",
+            { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+            .then(response =>{
+                this.quizes = response.data
+            })
+            console.log(this.class_id)
         }
     }
 </script>
 
 <style >
 
-    .v-chip.ongoing{
+    .v-chip.Ongoing{
         background: #64DD17 !important;
     }
-    .v-chip.ended{
+    .v-chip.Ended{
         background: tomato!important;
     }
-    .v-chip.notYet{
+    .v-chip.Not.Started{
         background: orange!important;
     }
     

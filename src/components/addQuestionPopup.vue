@@ -66,17 +66,14 @@
                 solution:'',
                 point:'',
                 quiz_id:localStorage.getItem("vQuiz_id"),
+
                 choices :[
                     {
                         name:''
                     }
                     
                 ],
-                questions:[
-                    {
-                        problemTitle:'this is important',  
-                    }
-                ]
+                question:{}
 
             }
         },
@@ -87,8 +84,12 @@
             remove:function(index) {
                 this.choices.splice(index, 1);
             },
-            submit:function(){
-
+            quesToQuiz:function(){
+                this.question.problem =this.title
+                this.question.sol = this.solution
+                this.question.point = this.point
+                
+                this.$emit("newQues",this.question)
             },
             addQues:function(){
 
@@ -99,8 +100,8 @@
      
                 },{ headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
                 .then(response =>{
-                    console.log(response.data)
-                    dialog:false;
+                   this.quesToQuiz(response.data)
+                    this.dialog=false;
                 })
             }
     

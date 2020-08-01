@@ -1,7 +1,7 @@
 <template>
     <div class="quizMaker mx-12">
         
-        <h2 class="heading-6 teal--text mt-7 "> New Quiz</h2>
+        <h2 class="teal--text mt-7 "> New Quiz</h2>
 
         <v-container class="mx-7 my-5">
             <v-row >
@@ -18,23 +18,40 @@
 					    submit Quiz
 				    </v-btn>
 
+
                     <app-add-question-popup v-if="addQues_flag"></app-add-question-popup>
+                     <!-- v-on:newQues="updateQues($event)" -->
 
-                    <v-container>
-                        <v-row>
-                            <v-col>
-                                
-                            </v-col>
-                        </v-row>
-                        
-                    </v-container>
+                    
                 </v-col>
+                <v-container>
+                    <v-row>
+                        <v-col sm="10">
+                            <v-card>
+                                <!--  -->
+                                <v-row class="ml-4 mr-1" v-for="(q,i) in questions" :key="i">
+                                    <div class="h2" style="font-size: 1.3em;">
+                                       <span class="red--text">Problem: </span> {{q.problem}}
+                                    <span class="red--text"> ({{q.point}} points)</span>
 
-            
+                                    </div>
+                                    <v-textarea prepend-inner-icon="edit" label="Answer"></v-textarea>
+                                    
+                                    
+                                    
+                                </v-row>
+                                
+                            </v-card>
+                        </v-col>
+                        <v-col sm="4"></v-col>
+                    </v-row>
+                    
+                </v-container>
+
+            {{questions}}
             </v-row>
         </v-container>
 
-        
         
         
     </div>
@@ -85,8 +102,29 @@
                 })
 
             },
+            // updateQues:function(newQ){
+            //     console.log("This is newQ")
+            //     console.log(newQ)
+            //     console.log(" ")
+
+            //     this.questions.push(newQ)
+
+            //     console.log("bad az Push shodan too Questions")
+            //     console.log(this.questions)
+            // }
+            
             
         },
+
+        
+        created(){
+
+            axios.get("http://127.0.0.1:8000/quiz/"+this.quiz_id+"/questions/"
+            ,{ headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+            .then(response =>{
+                this.questions= response.data
+            })
+        }
         
     }
 </script>

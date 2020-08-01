@@ -92,7 +92,7 @@
                         <v-text-field
                         label="Username"
                         name="Name"
-						v-model="username"
+					              	v-model="username"
                         prepend-icon="person"
                         type="text"
                         color="teal accent-4">
@@ -101,7 +101,7 @@
                         <v-text-field
                         label="Email"
                         name="Email"
-						v-model="email"
+						            v-model="email"
                         prepend-icon="email"
                         type="text"
                         color="teal accent-4" />
