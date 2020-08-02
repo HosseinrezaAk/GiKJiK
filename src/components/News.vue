@@ -46,7 +46,7 @@
             </v-card>           
         </v-container>
         
-        <app-add-news-popup> </app-add-news-popup>
+        <app-add-news-popup v-if="plusFlag"> </app-add-news-popup>
         
     </div>
 </template>
@@ -67,6 +67,8 @@
                 items: [
                    
                 ],
+                plusFlag:true,
+                inRole: localStorage.getItem("vRole")
             }
         },
         methods: {
@@ -80,6 +82,10 @@
                 this.items = response.data
                 console.log(this.items)
             })
+            if(this.inRole=="Student"){
+                this.plusFlag = false
+            }
+            
             // axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             // .then(response =>{
             //     this.author = response.data.username

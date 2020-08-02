@@ -4,7 +4,7 @@
             <app-classnavbar></app-classnavbar>
             <router-view ></router-view>
         
-        
+       
         
     </div>
 </template>

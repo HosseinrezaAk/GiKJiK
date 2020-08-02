@@ -106,7 +106,7 @@
                 links: [
                     { icon: 'home', text: 'Home', route: '/userHome'},
                     { icon: 'class', text: 'Class Manager', route: '/classmanagment'},
-                    { icon: 'person', text: 'Team', route: '/about'}
+                    
                     
                 ],
                 snackbar:false
@@ -114,6 +114,8 @@
         },
         methods:{
             move:function(){
+                axios.defaults.headers.common['Authorization'] = " ";
+                localStorage.clear();
                 this.$router.push({name :'Entrance'})
             }
         },

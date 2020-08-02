@@ -150,7 +150,7 @@
                     this.classes.push(response.data[this.counter1])
                 }
                 for(;this.counter<this.classes.length; this.counter ++){
-                    this.classes[this.counter].role="  Owner "
+                    this.classes[this.counter].role="Owner"
                     this.classes[this.counter].key = this.counter
                 }
                 

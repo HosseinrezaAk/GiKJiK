@@ -24,7 +24,23 @@
 
             
             <app-show-members-popup></app-show-members-popup>
-            
+
+            <v-menu offset-y>
+                <template v-slot:activator="{ on }">
+                    <v-btn text v-on="on" color="teal accent-4">
+                        <v-icon left>expand_more</v-icon>
+                        <span>Actions</span>
+                    </v-btn>
+                </template>
+                
+                <v-list>
+                    <v-list-item v-for="act in actions" :key="act.text" router >
+                        <v-btn text @click="work(act.text)">{{ act.text }}</v-btn>
+                        
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
             <v-btn @click="move" rounded text color="teal accent-4">
                 <span>Leave Class</span>
                 <v-icon right>exit_to_app</v-icon>
@@ -94,21 +110,64 @@
                 teacher_dep:[],
                 owner_dep:[],
                 dialog:false,
-                class_id:'',
-                inRole:''
+                class_id:localStorage.getItem("vClass_id"),
+                inRole: localStorage.getItem("vRole"),
+
+                actions: [
+                    { icon: 'home', text: 'Online', route: '/'},
+                    { icon: 'class', text: 'Offline', route: '/'},
+                    { icon: 'person', text: 'Delete', route: '/classmanagment'}
+                    
+                ],
                 
             }
         },
         methods:{
             move:function(){
                 this.$router.push({name :'User'})
+            },
+            work:function(text){
+                console.log(text)
+                console.log(this.inRole)
+                if(text =="Offline"){
+
+                }
+                else if(text =="Online"){
+
+                }
+                else if (text =="Delete" && this.inRole =="Student" ){
+                    console.log("IN DELETE STUDENT")
+                    axios.put("http://127.0.0.1:8000/class/"+ this.class_id+"/remove/",
+                    { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+                    .then(response =>{
+                        console.log('STUDENTTTT')
+                        console.log(response.status)
+                        this.$router.push({name :'ClassManagment'})
+
+                    })
+                }
+                else if (text =="Delete" && this.inRole =="Owner" ){
+                    console.log("IN DELETE Owner")
+                     axios.delete("http://127.0.0.1:8000/class/"+ this.class_id+"/delete/",
+                    { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+                    .then(response =>{
+                         
+
+                        console.log('Teacher')
+                        console.log(response.status)
+                        this.$router.push({name :'ClassManagment'})
+                        
+                    })
+                    
+                }
+
             }
         },
         created(){
             axios.get('http://127.0.0.1:8000/username/retrieve/', { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response =>{
                 this.username = response.data.username
-                console.log(this.username)
+                
             }),
             
             this.class_id = localStorage.getItem("vClass_id"),

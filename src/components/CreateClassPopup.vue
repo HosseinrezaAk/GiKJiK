@@ -13,9 +13,10 @@
 				</v-card-title>
 				<v-card-text>
 					<v-form class="px-3" ref="form">
-						<v-text-field label="Title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
-						<v-text-field label="Class ID" v-model="classID" prepend-icon="class" :rules="inputRules"></v-text-field>
-						<v-btn text class="success  mt-3" @click="submit" >Add Class</v-btn>
+						<v-text-field label="Title" v-model="title" prepend-icon="title" ></v-text-field>
+						<v-text-field label="Class ID" v-model="classID" prepend-icon="class" ></v-text-field>
+						<!-- <v-btn outlined   @click="submit" >Add Class</v-btn> -->
+						<v-btn outlined class="  mt-3"  color="teal darken-1" @click="submit"> Submit Class</v-btn>
 					</v-form>
 				</v-card-text>
 

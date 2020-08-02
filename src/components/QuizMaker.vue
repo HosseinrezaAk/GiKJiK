@@ -174,7 +174,7 @@
                         console.log(response.data.id)
                         this.quiz_id = response.data.id
                         localStorage.setItem("vQuiz_id",this.quiz_id)
-                        console.log("HELLLOO"+this.quiz_id)
+                        
                         this.submit_flag=false;
                         this.addQues_flag= true
                     }
