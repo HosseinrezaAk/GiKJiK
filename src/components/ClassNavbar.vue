@@ -35,7 +35,7 @@
                 
                 <v-list>
                     <v-list-item v-for="act in actions" :key="act.text" router >
-                        <v-btn text @click="work(act.text)">{{ act.text }}</v-btn>
+                        <v-btn text v-if="(act.text =='Online' && onBtns) || (act.text =='Offline' && onBtns) ||(act.text =='Delete' && delBtn) " @click="work(act.text)">{{ act.text }}</v-btn>
                         
                     </v-list-item>
                 </v-list>
@@ -112,6 +112,8 @@
                 dialog:false,
                 class_id:localStorage.getItem("vClass_id"),
                 inRole: localStorage.getItem("vRole"),
+                onBtns: false,
+                delBtn:false,
 
                 actions: [
                     { icon: 'home', text: 'Online', route: '/'},
@@ -172,6 +174,12 @@
             
             this.class_id = localStorage.getItem("vClass_id"),
             this.inRole = localStorage.getItem("vRole")
+            if(this.inRole =="Teacher"){
+                this.onBtns=true
+            }
+            if(this.inRole == "Owner" || this.inRole =="Student"){
+                this.delBtn = true
+            }
         }
         
     }

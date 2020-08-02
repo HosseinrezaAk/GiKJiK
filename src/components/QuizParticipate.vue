@@ -4,6 +4,22 @@
         <h2 class="teal--text mt-7 "> </h2>
 
         <v-container class="mx-7 my-5">
+            <v-row>
+                <v-col class=" ml-3 grey--text">
+                    Deadline: {{deadline}}
+                    <v-btn class="mt-3" small outlined color="red"  @click="move" >End Quiz</v-btn>
+                </v-col>
+                
+                <v-col>
+                    
+                </v-col>
+                <v-col>
+                    
+                </v-col>
+                <v-col>
+                   
+                </v-col>
+            </v-row>
             <v-row >
                 
                 <v-container>
@@ -39,11 +55,21 @@
                         </v-col>
                         <v-col sm="4"></v-col>
                     </v-row>
-                    
-                </v-container>
+                    <v-row
+                    align="center"
+                    justify="center"
+                    class="mr-12"
+                    >
+                        
+                </v-row> 
 
+                </v-container>
+                
+                
             
             </v-row>
+            
+           
         </v-container>
 
         
@@ -52,10 +78,12 @@
 </template>
 
 <script>
+    import moment from 'moment'
     import axios from 'axios'
     export default {
         data() {
             return {
+                deadline: moment(localStorage.getItem("vDeadline")).format('MMMM Do YYYY, h:mm:ss a'),
                 quiz_id: localStorage.getItem("vQuiz_id"),
                 questions:[
                     
@@ -65,6 +93,9 @@
             }
         },
         methods: {
+            move:function(){
+                this.$router.push({name :'Quiz'})
+            },
             submitQ:function(q_id,answerIndex){
 
                 axios.post("http://127.0.0.1:8000/question/"+ q_id +"/create/answer/",{

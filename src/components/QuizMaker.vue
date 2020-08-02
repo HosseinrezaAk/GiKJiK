@@ -7,14 +7,77 @@
             <v-row >
                 <v-col cols="12"  md="4"   >
                     <v-form ref="form">
-                    <v-text-field
+                    <v-row class="ml-1">
+                        <v-icon left>edit</v-icon>
+                        <v-text-field
+                        
                         v-model="title"
                         
                         label="Quiz Topic"
                     ></v-text-field>
-                    <v-text-field v-model="deadline" label= "Deadline"></v-text-field>
+                    </v-row>
+                    
+                    <!-- <v-text-field v-model="deadline" label= "Deadline"></v-text-field> -->
+                   
+                   <v-dialog
+                        ref="dialog"
+                        v-model="modal"
+                        :return-value.sync="date"
+                        
+                        width="290px"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                        <v-text-field
+                            v-model="date"
+                            label="Picker in dialog"
+                            prepend-icon="event"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                        ></v-text-field>
+                        </template>
+                        <v-date-picker v-model="date" scrollable color="teal">
+                        <v-spacer></v-spacer>
+                        <v-btn text color="teal darken-1" @click="modal = false">Cancel</v-btn>
+                        <v-btn text color="teal darken-1" @click="$refs.dialog.save(date),modal=false">OK</v-btn>
+                        </v-date-picker>
+                    </v-dialog>
+
+
+                    <v-dialog
+                        ref="dialog"
+                        v-model="modal2"
+                        :return-value.sync="time"
+                        
+                        width="290px"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                        <v-text-field
+                            v-model="time"
+                            label="Picker in dialog"
+                            prepend-icon="access_time"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                        ></v-text-field>
+                        </template>
+                        <v-time-picker
+                        color="teal"
+                        v-if="modal2"
+                        v-model="time"
+                        full-width
+                        >
+                        <v-spacer></v-spacer>
+                        <v-btn text color="teal darken-1" @click="modal2 = false">Cancel</v-btn>
+                        <v-btn text color="teal darken-1" @click="$refs.dialog.save(time)">OK</v-btn>
+                        </v-time-picker>
+                    </v-dialog>
+
+
+
+
                     </v-form>
-                    <v-btn dark text  class="teal lighten-5 " color="teal accent-4"  v-if="submit_flag" @click="submitQuiz">
+                    <v-btn dark text  class="teal lighten-5 mt-5" color="teal accent-4"   v-if="submit_flag" @click="submitQuiz">
 					    submit Quiz
 				    </v-btn>
 
@@ -118,6 +181,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import axios from 'axios'
     import addQuestionPopup from './addQuestionPopup'
     
@@ -130,6 +194,13 @@
         
         data() {
             return {
+                
+                time: null,
+                modal2:false,
+                date: new Date().toISOString().substr(0, 10),
+                menu: false,
+                modal: false,
+                due:'',
                 dialog:false,
                 p_title:'',
                 p_solution:'',
@@ -162,9 +233,10 @@
             },
             
             submitQuiz:function(){
+                
                 axios.post('http://127.0.0.1:8000/class/'+ this.class_id + '/create/quiz/',{
                     title:this.title,
-                    deadline:this.deadline
+                    deadline: this.date+"T"+this.time
                     
                 },
                 { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})

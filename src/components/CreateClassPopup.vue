@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-dialog max-width="600px" v-model="dialog">
+		<v-dialog max-width="600px" v-model="dialog" >
 			<template v-slot:activator="{on,attrs}">
 				<v-btn dark text v-on="on" v-bind="attrs" class="teal lighten-1" >
 					Add new Class
@@ -49,15 +49,17 @@
 						name: this.title,
 						class_id: this.classID,
 						
+						
 					},
 					 { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
-					.then(function (response){
-						console.log(response);
-						
+					.then(response =>{
+						window.location.reload()
+						this.dialog=false
 					})
-					.catch(function(error){
-						console.log(error);
-					});
+						
+						
+						
+					
 					
 			}
 		},

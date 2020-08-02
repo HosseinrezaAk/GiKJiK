@@ -4,7 +4,7 @@
         <h2 class="heading-6 teal--text mt-7 "> Quiz </h2>
         <v-container class="my-5 mx-7 ">
             <v-row>
-                <v-col  cols="12" sm="3" >
+                <v-col  cols="12" sm="3"  v-if="std_flag">
                         <v-card flat class=" ma-3  grey lighten-2" @click="addQuiz" style="height: 255px;" >
                             
                             <v-card-text class="py-12"  >
@@ -32,7 +32,7 @@
                         </div>
                         <v-col cols="12" mx-auto justify="center" align="center" >
                             <v-row justify="center" align="center">
-                                <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz.id)" >
+                                <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz.id,quiz.deadline)" >
                                 <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
                             </v-btn>
@@ -67,7 +67,9 @@
 
         data() {
             return {
+                std_flag :true,
                 class_id:localStorage.getItem("vClass_id"),
+                inRole: localStorage.getItem("vRole"),
                 question:{problem:'',answer:'',option1:'',option2:'',option3:'',option4:''},
                 
                 quizes:[
@@ -85,9 +87,10 @@
             addQuiz: function(){
                 this.$router.push({name:'QuizMaker'})
             },
-            participate:function(quiz_id){
+            participate:function(quiz_id,deadline){
                 
                 localStorage.setItem('vQuiz_id',quiz_id)
+                localStorage.setItem('vDeadline',deadline)
                 this.$router.push({name:'QuizParticipate'})
 
             },
@@ -105,8 +108,7 @@
                         let temp = this.quizes.filter(x=>x.id===quiz_id)
                         let temp_index = this.quizes.indexOf(temp[0])
                         this.quizes.splice(temp_index, 1);
-                        console.log("GOOOOOOOZ")
-                        console.log(temp)
+                        
                     }
                 })
 
@@ -121,7 +123,10 @@
                 this.quizes = response.data
                 console.log(this.quizes)
             })
-            console.log(this.class_id)
+            if(this.inRole == "Student"){
+                this.std_flag =false
+            }
+            console.log(this.inRole)
         }
     }
 </script>

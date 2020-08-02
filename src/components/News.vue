@@ -33,6 +33,7 @@
                                         <div class="caption font-weight-light" v-text="item.date">
                                             
                                         </div>
+                                        <v-btn class="ml-2" v-if="plusFlag" text small outlined color="teal lighten-4" @click="deleteNews(item.id)">Delete</v-btn>
                                     </v-row>   
                                     </v-card-actions>
                                          
@@ -75,7 +76,20 @@
         methods: {
             addNews:function(new_news){
                 
+            },
+            deleteNews:function(newsID){
+
+                axios.delete("http://127.0.0.1:8000/news/"+ newsID +"/delete/", { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+                .then(response=>{
+                    if(response.status==204){
+                        let temp = this.items.filter(x=>x.id=== newsID)
+                        let temp_index = this.items.indexOf(temp[0])
+                        this.items.splice(temp_index, 1);
+                        
+                    }
+                })
             }
+
         },
         created(){
             axios.get("http://127.0.0.1:8000/class/"+this.class_id+"/blackboard/", { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
