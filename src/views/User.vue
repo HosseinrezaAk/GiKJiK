@@ -44,7 +44,7 @@
 								<v-icon left large color="teal accent-5">
 									
 								</v-icon>
-								{{course.teachers}}
+								{{course.teacher}}
 							</v-card-text>
 
 							<v-card-actions>

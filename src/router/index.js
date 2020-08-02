@@ -10,7 +10,7 @@ import Whiteboard from '../components/Whiteboard.vue'
 import News from '../components/News.vue'
 import ClassScreen from '../components/ClassScreen.vue'
 import QuizMaker from '../components/QuizMaker.vue'
-
+import QuizParticipate from '../components/QuizParticipate.vue'
 Vue.use(VueRouter)
 
 	const routes = [
@@ -66,6 +66,12 @@ Vue.use(VueRouter)
 				path:'/quizmaker',
 				name:'QuizMaker',
 				component:QuizMaker
+			},
+			{
+				path:'/quizparticipate',
+				name:'QuizParticipate',
+				component:QuizParticipate
+				
 			},
 		]
 	},

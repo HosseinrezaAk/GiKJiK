@@ -12,15 +12,7 @@
                       <h1 class="text-center display-2 teal--text text--accent-4"> <span class="font-weight-light ">GIK</span><span>JIK</span></h1>
                       <div class="text-center" mt-4>
 						  
-                        <!-- <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-facebook-f</v-icon>
-                        </v-btn>
-                        <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-google-plus-g</v-icon>
-                        </v-btn>
-                        <v-btn class="mx-2" fab color="black" outlined>
-                          <v-icon class="">fab fa-linkedin-in</v-icon>
-                        </v-btn> -->
+                       
                       </div>
                       <h4 class="text-center mlt-4">Ensure your Username for resitration</h4>
                       <v-form>
@@ -156,7 +148,7 @@ import axios from 'axios'
 				localStorage.setItem("LearnOnlineToken", 'Bearer ' + token);
 				axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 				(this.$router.push({name:'User'}));
-				console.log("THIS IS TOKEN " + token)
+			
 				})
 			
 		},
@@ -171,7 +163,7 @@ import axios from 'axios'
 				localStorage.setItem("LearnOnlineToken", 'Bearer ' + token);
 				axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 				(this.$router.push({name:'User'}));
-				console.log("THIS IS TOKEN " + token)
+				
 				})
 		},
 		move:function(){

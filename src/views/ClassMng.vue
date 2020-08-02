@@ -48,7 +48,7 @@
 
                             <v-flex xs6 sm4 md4>
                                 <div class="caption grey--text">Teacher</div>
-                                <div> {{eachClass.teachers}}</div>
+                                <div> {{eachClass.teacher}}</div>
                             </v-flex>
 
                             <v-flex xs6 sm2 md2>
@@ -85,7 +85,7 @@
 	export default {
         data() {
             return {
-                classes: [
+                classes: [ {}
                     
                    
                     ],
@@ -107,7 +107,7 @@
                 this.$router.push({name : 'MainClass'})
                 localStorage.setItem("vClass_id", vClassId);
                 localStorage.setItem("vRole",vRole)
-                console.log("THIS IS ROLE TOOYE CLASS MANG"+vRole)
+                
                 
                 
             },

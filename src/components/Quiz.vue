@@ -31,7 +31,7 @@
                             <v-chip label :class="` ${quiz.status} white--text caption my-1`" small>{{ quiz.status }}</v-chip>
                         </div>
                         <v-col cols="12" mx-auto justify="center" align="center" >
-                            <v-btn  text color="teal accent-4" class="my-3" >
+                            <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz_id)" >
                                 <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
                             </v-btn>
@@ -65,10 +65,10 @@
                 question:{problem:'',answer:'',option1:'',option2:'',option3:'',option4:''},
                 
                 quizes:[
-                    {title:'Chapter-1', teacher:'teacher-1', status:'notYet',quizDate:''},
-                    {title:'Chapter-2', teacher:'teacher-1', status:'ongoing',quizDate:''},
-                    {title:'Chapter-3', teacher:'teacher-2', status: 'ended',quizDate:''},
-                    {title:'Chapter-4', teacher:'teacher-2', status: 'ended',quizDate:''}
+                    {title:'Chapter-1', teacher:'teacher-1', status:'Not Started',quizDate:''},
+                    {title:'Chapter-2', teacher:'teacher-1', status:'Ongoing',quizDate:''},
+                    {title:'Chapter-3', teacher:'teacher-2', status: 'Ended',quizDate:''},
+                    {title:'Chapter-4', teacher:'teacher-2', status: 'Ended',quizDate:''}
                 ],
                 role:'',
                 dialog: false,
@@ -78,6 +78,11 @@
         methods:{
             addQuiz: function(){
                 this.$router.push({name:'QuizMaker'})
+            },
+            participate:function(quiz_id){
+                localStorage.setItem('vQuiz_id',quiz_id)
+                this.$router.push({name:'QuizParticipate'})
+
             }
         },
         created(){
@@ -87,6 +92,7 @@
             { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response =>{
                 this.quizes = response.data
+                console.log(this.quizes)
             })
             console.log(this.class_id)
         }

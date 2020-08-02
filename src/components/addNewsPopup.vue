@@ -29,7 +29,7 @@
 				<v-card-text>
 					<v-form class="px-3" ref="form">
 						<v-text-field label="News title" v-model="title" prepend-icon="title" ></v-text-field>
-						<v-textarea label="Description" v-model="description" prepend-icon="edit"></v-textarea>
+						<v-textarea label="Description" v-model="indescription" prepend-icon="edit"></v-textarea>
                         
 						<v-btn text class="teal lighten-5 " color="teal accent-4"  @click="addNews" >Submit</v-btn>
                         
@@ -48,14 +48,15 @@
     export default {
         data() {
             return {
+                indescription:'',
+                class_id: localStorage.getItem("vClass_id"),
                 dialog:false,
                 title:'',
                 date:'',
-                description:'',
+                
 
                 singleNews:{
-                    title:'',
-                    description:''
+                
                 }
                 
 
@@ -65,11 +66,10 @@
         methods: {
 
             addNews:function(){
-                this.singleNews.title = this.title;
-                this.singleNews.description = this.description;
-                axios.post(`http://127.0.0.1:8000/class/${"hossein_3"}/add/news/` ,{
+                
+                axios.post('http://127.0.0.1:8000/class/'+this.class_id+'/add/news/' ,{
                     title: this.title,
-                    description: this.description,
+                    description: this.indescription,
                     date :this.date,
                     
                 },
@@ -77,7 +77,7 @@
                  ),
                  window.location.reload()
                 this.dialog= false
-                this.$emit('addNews', this.singleNews);
+                
             }
         },
     }

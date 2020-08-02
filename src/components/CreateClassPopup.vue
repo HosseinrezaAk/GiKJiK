@@ -15,7 +15,7 @@
 					<v-form class="px-3" ref="form">
 						<v-text-field label="Title" v-model="title" prepend-icon="title" :rules="inputRules"></v-text-field>
 						<v-text-field label="Class ID" v-model="classID" prepend-icon="class" :rules="inputRules"></v-text-field>
-						<v-btn text class="success  mt-3" @click="submit" :loading="loading">Add Class</v-btn>
+						<v-btn text class="success  mt-3" @click="submit" >Add Class</v-btn>
 					</v-form>
 				</v-card-text>
 
@@ -38,7 +38,7 @@
 				inputRules:[
 					v => v.length >= 3 || 'Minimum length is 3 characters'
 				],
-				loading: false,
+				
 				dialog: false
 			}
 		},
@@ -52,6 +52,7 @@
 					 { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
 					.then(function (response){
 						console.log(response);
+						
 					})
 					.catch(function(error){
 						console.log(error);

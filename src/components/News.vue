@@ -16,7 +16,7 @@
 
                                         </v-card-title>
                         
-                                        <v-card-subtitle v-text="author" >
+                                        <v-card-subtitle v-text="item.author" >
                                             
                                         </v-card-subtitle>
 
@@ -31,7 +31,7 @@
                                         class="mr-8"
                                         >
                                         <div class="caption font-weight-light" v-text="item.date">
-                                            asldkjalskdjlkj
+                                            
                                         </div>
                                     </v-row>   
                                     </v-card-actions>
@@ -46,7 +46,7 @@
             </v-card>           
         </v-container>
         
-        <app-add-news-popup v-bind:singleNews="singleNews" v-on:addNews="addNews($event)"> </app-add-news-popup>
+        <app-add-news-popup> </app-add-news-popup>
         
     </div>
 </template>
@@ -60,6 +60,7 @@
         },
         data() {
             return {
+                class_id: localStorage.getItem("vClass_id"),
                 author: '',
                 singleNews:{},
                 news:[],
@@ -70,20 +71,20 @@
         },
         methods: {
             addNews:function(new_news){
-                this.singleNews=new_news
+                
             }
         },
         created(){
-            axios.get(`http://127.0.0.1:8000/class/${"hossein_3"}/blackboard/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+            axios.get("http://127.0.0.1:8000/class/"+this.class_id+"/blackboard/", { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 this.items = response.data
                 console.log(this.items)
             })
-            axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
-            .then(response =>{
-                this.author = response.data.username
+            // axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+            // .then(response =>{
+            //     this.author = response.data.username
 
-            })
+            // })
         }
     }
 </script>
