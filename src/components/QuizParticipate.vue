@@ -9,21 +9,32 @@
                 <v-container>
                     <v-row>
                         <v-col sm="10">
-                            <v-card>
+                            <v-card v-for="(q,i) in questions" :key="i" class="my-1">
                                 <!--  -->
-                                <v-row class="ml-4 mr-1" v-for="(q,i) in questions" :key="i">
-                                    <div class="h2" style="font-size: 1.3em;">
-                                       <span class="red--text">Problem: </span> {{q.problem}}
-                                       
+                                <v-row class="ml-4 mr-1 " >
+                                    <div class="h2" style="font-size: 1.3em; margin-top:15px">
+                                       <span class="red--text">Q{{i+1}}:  </span> {{q.problem}}
                                     <span class="red--text"> ({{q.point}} points)</span>
 
                                     </div>
-                                    <v-textarea prepend-inner-icon="edit" label="Answer"></v-textarea>
-                                    
                                     
                                     
                                 </v-row>
+                                <v-row class="mx-4">
+                                    <v-textarea prepend-inner-icon="edit" v-model="answer[i]"  label="Answer"></v-textarea>
+                                </v-row>
                                 
+                                <v-card-actions>
+                                    <v-row
+                                    align="center"
+                                    justify="end"
+                                    class="mr-8"
+                                    >
+                                        <v-btn outlined color="teal darken-1" v-bind:disabled="submit_flag[i]" @click="submitQ(q.id,i)">Submit</v-btn>
+                                    </v-row>   
+                                </v-card-actions>
+
+
                             </v-card>
                         </v-col>
                         <v-col sm="4"></v-col>
@@ -45,26 +56,38 @@
     export default {
         data() {
             return {
-                quiz_id:localStorage.getItem("vQuiz_id"),
+                quiz_id: localStorage.getItem("vQuiz_id"),
                 questions:[
-                    {problem:"lo;laksd;laksd;ka;sdk;aksddldldllliopeutskdgxckjiosuerxmvlkxhuifgh",point:2},
-                    {problem:"losssssssssssssssssssssssdk;aksddldldllliopeutskdgxckjiosuerxmvlkxhuifgh",point:3},
-                    {problem:"lo;ddddddddddddddddddddddddldldllliopeutskdgxckjiosuerxmvlkxhuifgh",point:4}
-                ]
+                    
+                ],
+                answer:[],
+                submit_flag:[],
             }
         },
         methods: {
+            submitQ:function(q_id,answerIndex){
+
+                axios.post("http://127.0.0.1:8000/question/"+ q_id +"/create/answer/",{
+                    answer: this.answer[answerIndex]
+                },
+                { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }}
+                ).then(response =>{
+                    console.log(response.status)
+                    this.submit_flag[answerIndex]=true
+                })
+            }
             
         },
 
-        // created() {
-        //      axios.get("http://127.0.0.1:8000/quiz/"+this.quiz_id+"/questions/"
-        //     ,{ headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
-        //     .then(response =>{
-        //         this.questions= response.data
-        //         console.log(this.questions)
-        //     })
+        created() {
+             console.log(this.quiz_id)
+             axios.get("http://127.0.0.1:8000/quiz/"+ this.quiz_id +"/questions/"
+            ,{ headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+            .then(response =>{
+                this.questions= response.data
+               
+            })
 
-        // },
+        },
     }
 </script>

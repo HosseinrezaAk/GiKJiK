@@ -31,7 +31,7 @@
                             <v-chip label :class="` ${quiz.status} white--text caption my-1`" small>{{ quiz.status }}</v-chip>
                         </div>
                         <v-col cols="12" mx-auto justify="center" align="center" >
-                            <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz_id)" >
+                            <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz.id)" >
                                 <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
                             </v-btn>
@@ -80,6 +80,7 @@
                 this.$router.push({name:'QuizMaker'})
             },
             participate:function(quiz_id){
+                
                 localStorage.setItem('vQuiz_id',quiz_id)
                 this.$router.push({name:'QuizParticipate'})
 

@@ -93,7 +93,7 @@
             },
             addQues:function(){
 
-                axios.post('http://127.0.0.1:8000/quiz/'+this.quiz_id +'/add/question/',{
+                axios.post('http://127.0.0.1:8000/quiz/'+ this.quiz_id +'/add/question/',{
                     problem: this.title,
                     solution: this.solution,
                     point:this.point
