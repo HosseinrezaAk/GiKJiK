@@ -11,6 +11,8 @@ import News from '../components/News.vue'
 import ClassScreen from '../components/ClassScreen.vue'
 import QuizMaker from '../components/QuizMaker.vue'
 import QuizParticipate from '../components/QuizParticipate.vue'
+import QuizEdit from '../components/QuizEdit.vue'
+
 Vue.use(VueRouter)
 
 	const routes = [
@@ -71,6 +73,12 @@ Vue.use(VueRouter)
 				path:'/quizparticipate',
 				name:'QuizParticipate',
 				component:QuizParticipate
+				
+			},
+			{
+				path:'/quizedit',
+				name:'QuizEdit',
+				component:QuizEdit
 				
 			},
 		]

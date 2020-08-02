@@ -35,7 +35,7 @@
                                 <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
                             </v-btn>
-                            <v-btn text color="red darken-4" class="my-3">
+                            <v-btn text color="red darken-4" class="my-3" @click="edit">
                                 <v-icon left >edit</v-icon>
                                 <span>Edit</span>
                             </v-btn>
@@ -83,6 +83,11 @@
                 
                 localStorage.setItem('vQuiz_id',quiz_id)
                 this.$router.push({name:'QuizParticipate'})
+
+            },
+            edit:function(quiz_id){
+                localStorage.setItem('vQuiz_id',quiz_id)
+                this.$router.push({name:'QuizEdit'})
 
             }
         },
