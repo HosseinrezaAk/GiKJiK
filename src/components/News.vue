@@ -52,6 +52,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import axios from 'axios'
     import addNewsPopup from './addNewsPopup'
     export default {
@@ -80,17 +81,16 @@
             axios.get("http://127.0.0.1:8000/class/"+this.class_id+"/blackboard/", { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
             .then(response => {
                 this.items = response.data
-                console.log(this.items)
+                let counter =0;
+                for(counter =0;counter <this.items.length;counter++){
+                    this.items[counter].date = moment(this.items[counter].date).format("MMMM Do YYYY, h:mm:ss a")
+                }
             })
             if(this.inRole=="Student"){
                 this.plusFlag = false
             }
             
-            // axios.get(`http://127.0.0.1:8000/user/${2}/retrieve/`, { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
-            // .then(response =>{
-            //     this.author = response.data.username
-
-            // })
+           
         }
     }
 </script>
