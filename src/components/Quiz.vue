@@ -31,18 +31,24 @@
                             <v-chip label :class="` ${quiz.status} white--text caption my-1`" small>{{ quiz.status }}</v-chip>
                         </div>
                         <v-col cols="12" mx-auto justify="center" align="center" >
-                            <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz.id)" >
+                            <v-row justify="center" align="center">
+                                <v-btn  text color="teal accent-4" class="my-3" @click="participate(quiz.id)" >
                                 <v-icon left>done_all</v-icon>
                                 <span>Participate</span>
                             </v-btn>
-                            <v-btn text color="red darken-4" class="my-3" @click="edit">
-                                <v-icon left >edit</v-icon>
-                                <span>Edit</span>
+                            </v-row>
+                            
+                            <v-row>
+                                <v-btn text color="red darken-4" class="my-3 ml-2" @click="deleteQuiz(quiz.id)">
+                                <v-icon left >close</v-icon>
+                                <span>Delete</span>
                             </v-btn>
-                            <v-btn text color="deep-purple darken-3" class="my-3">
+                            <v-btn text color="deep-purple darken-3" class="my-3 ">
                                 <v-icon left >trending_up</v-icon>
                                 <span>Result</span>
-                            </v-btn>            
+                            </v-btn> 
+                            </v-row>
+                                      
                         </v-col>         
                     </v-card>
                 </v-col>
@@ -88,6 +94,21 @@
             edit:function(quiz_id){
                 localStorage.setItem('vQuiz_id',quiz_id)
                 this.$router.push({name:'QuizEdit'})
+
+            },
+            deleteQuiz:function(quiz_id){
+
+                axios.delete("http://127.0.0.1:8000/quiz/"+ quiz_id +"/delete/",
+                { headers: { Authorization:localStorage.getItem('LearnOnlineToken') }})
+                .then(response =>{
+                    if(response.status==204){
+                        let temp = this.quizes.filter(x=>x.id===quiz_id)
+                        let temp_index = this.quizes.indexOf(temp[0])
+                        this.quizes.splice(temp_index, 1);
+                        console.log("GOOOOOOOZ")
+                        console.log(temp)
+                    }
+                })
 
             }
         },
